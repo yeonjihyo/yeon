@@ -3,42 +3,42 @@ package Day2;
 public class Geee3 {
 
 	public static void main(String[] args) {
-		//¹Ýº¹¹®-¾î¶²ÀÏÀ»¹Ýº¹ÀûÀ¸·ÎÇÒ‹š»ç¿ëÇÏ´Â¹®¹ý.±ÔÄ¢ÀÌÀÖ¾î¾ßÇÔ
-		//for¹® while¹® do while¹®
-		//for¹®°ú while¹®Àº µ¿ÀÛ¹æ½ÄÀÌ °°À½
-		//do while¹®Àº ´Ù¸£´Ù
+		//ë°˜ë³µë¬¸-ì–´ë–¤ì¼ì„ë°˜ë³µì ìœ¼ë¡œí• ë–„ì‚¬ìš©í•˜ëŠ”ë¬¸ë²•.ê·œì¹™ì´ìžˆì–´ì•¼í•¨
+		//forë¬¸ whileë¬¸ do whileë¬¸
+		//forë¬¸ê³¼ whileë¬¸ì€ ë™ìž‘ë°©ì‹ì´ ê°™ìŒ
+		//do whileë¬¸ì€ ë‹¤ë¥´ë‹¤
 		
-		/*for(ÃÊ±âÈ­;Á¶°Ç½Ä ;Áõ°¨¿¬»ê ){
-		½ÇÇà¹®;
+		/*for(ì´ˆê¸°í™”;ì¡°ê±´ì‹ ;ì¦ê°ì—°ì‚° ){
+		ì‹¤í–‰ë¬¸;
 		}
-		Á¶°Ç½Ä: Á¶°Ç½ÄÀ»¸¸Á·(ÂüÀÌ¶ó¸é)ÇÏ¸é ½ÇÇà¹®À» ½ÇÇàÇÏ°í 
-		¸¸Á·ÇÏÁö¾ÊÀ¸¸é¹Ýº¹¹®À» ÁÕ·áÇÑ´Ù.
-		ÃÊ±âÈ­: Á¶°Ç½Ä¿¡¼­ »ç¿ëÇÒ º¯¼ö¸¦ ÃÊ±âÈ­ ÇÏ°Å³ª, ½ÇÇà¹®¿¡¼­ »ç¿ëÇÒ
-		º¯¼ö¸¦ ÃÊ±âÈ­ÇÑ´Ù.
-		Áõ°¨¿¬»ê: Á¶°Ç½Ä¿¡¼­ »ç¿ëÇÏ´Â º¯¼ö¸¦ Áõ°¡ ¶Ç´Â °¨¼Ò ½ÃÅ°´Â ÀÛ¾÷À» ÇÑ´Ù
-		1ÃÊ±âÈ­ 2,5Á¶°Ç½Ä 3,6½ÇÇà¹® 4,7Áõ°¨¿¬»ê ¼øÀ¸·Î ÁøÇà
+		ì¡°ê±´ì‹: ì¡°ê±´ì‹ì„ë§Œì¡±(ì°¸ì´ë¼ë©´)í•˜ë©´ ì‹¤í–‰ë¬¸ì„ ì‹¤í–‰í•˜ê³  
+		ë§Œì¡±í•˜ì§€ì•Šìœ¼ë©´ë°˜ë³µë¬¸ì„ ì£µë£Œí•œë‹¤.
+		ì´ˆê¸°í™”: ì¡°ê±´ì‹ì—ì„œ ì‚¬ìš©í•  ë³€ìˆ˜ë¥¼ ì´ˆê¸°í™” í•˜ê±°ë‚˜, ì‹¤í–‰ë¬¸ì—ì„œ ì‚¬ìš©í• 
+		ë³€ìˆ˜ë¥¼ ì´ˆê¸°í™”í•œë‹¤.
+		ì¦ê°ì—°ì‚°: ì¡°ê±´ì‹ì—ì„œ ì‚¬ìš©í•˜ëŠ” ë³€ìˆ˜ë¥¼ ì¦ê°€ ë˜ëŠ” ê°ì†Œ ì‹œí‚¤ëŠ” ìž‘ì—…ì„ í•œë‹¤
+		1ì´ˆê¸°í™” 2,5ì¡°ê±´ì‹ 3,6ì‹¤í–‰ë¬¸ 4,7ì¦ê°ì—°ì‚° ìˆœìœ¼ë¡œ ì§„í–‰
 		
-		¿¹
-		int i = 0; //¹Ýº¹¹®¿¡¼­ »ç¿ëÇÒ º¯¼ö
+		ì˜ˆ
+		int i = 0; //ë°˜ë³µë¬¸ì—ì„œ ì‚¬ìš©í•  ë³€ìˆ˜
 		for(i=1; i<=5; i++){
 			System.out.println("Hello world!");
 		} */
 
 	
-		/*1¿¡¼­5±îÁö Ãâ·ÂÇÏ´Â ÄÚµå¸¦ ¹Ýº¹¹®À» ÅëÇØ ÀÛ¼ºÇÏ¼¼¿ä.
+		/*1ì—ì„œ5ê¹Œì§€ ì¶œë ¥í•˜ëŠ” ì½”ë“œë¥¼ ë°˜ë³µë¬¸ì„ í†µí•´ ìž‘ì„±í•˜ì„¸ìš”.
 		int i = 0;
 		for (i=1 ; i<=5 ; i++){
 			System.out.println(i);
 		}*/
 		
-		//1¿¡¼­ 10±îÁö ÇÕ
+		//1ì—ì„œ 10ê¹Œì§€ í•©
 	/*	int i = 0;
 		int sum = 0;
 		for (i=1, sum=0 ; i<=10 ; i++){
 			sum = sum + i;
 			//sum+=i;
 		}
-			System.out.println("1ºÎÅÍ10±îÁöÀÇÇÕ: " + sum);*/
+			System.out.println("1ë¶€í„°10ê¹Œì§€ì˜í•©: " + sum);*/
 	
 	
 	

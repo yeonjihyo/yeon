@@ -6,15 +6,15 @@ public class Geee5 {
 		
 		int age=10;
 		if (age>=20){
-			System.out.println("����");
+			System.out.println("성인");
 		}
 		else{
-			System.out.println("û�ҳ�");
+			System.out.println("청소년");
 		}
 		
 		
 		
-		//num��0�̸�0�̶�� ����ϰ�1�̸�1�̶������ϰ� 0��1�̾ƴϸ�0��1�̾ƴմϴٶ�� ����ϴ� ����
+		//num이0이면0이라고 출력하고1이면1이라고출력하고 0과1이아니면0과1이아닙니다라고 출력하는 예쩨
 		
 					
 

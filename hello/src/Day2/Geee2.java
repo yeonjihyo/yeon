@@ -7,28 +7,28 @@ public class Geee2 {
 	public static void main(String[] args) {
 	/*int num =6;
 		if(num%2==0 && num%3==0){
-			System.out.println(num+"6ÀÇ ¹è¼ö");
+			System.out.println(num+"6ì˜ ë°°ìˆ˜");
 		}*/
 		
-		//num°¡ 2ÀÇ ¹è¼öÀÌ¸é 2ÀÇ ¹è¼ö¶ó°í Ãâ·ÂÇÏ°í
-		//num°¡ 3ÀÇ ¹è¼öÀÌ¸é 3ÀÇ ¹è¼ö¶ó°í Ãâ·ÂÇÏ°í
-		//num°¡ 6ÀÇ ¹è¼öÀÌ¸é 6ÀÇ ¹è¼ö¶ó°í Ãâ·ÂÇÏ°í
-		//num°¡ 2,3,6,ÀÇ¹è¼ö°¡¾Æ´Ï¸é 2,3,6ÀÇ ¹è¼ö°¡ ¾Æ´Õ´Ï´Ù
-		//¶ó°íÃâ·ÂÇÏ´Â¿¹Á¦
-		//num = 6 => 6ÀÇ ¹è¼öÀÔ´Ï´Ù¸¸ Ãâ·ÂÇØ¾ßÇÑ´Ù
+		//numê°€ 2ì˜ ë°°ìˆ˜ì´ë©´ 2ì˜ ë°°ìˆ˜ë¼ê³  ì¶œë ¥í•˜ê³ 
+		//numê°€ 3ì˜ ë°°ìˆ˜ì´ë©´ 3ì˜ ë°°ìˆ˜ë¼ê³  ì¶œë ¥í•˜ê³ 
+		//numê°€ 6ì˜ ë°°ìˆ˜ì´ë©´ 6ì˜ ë°°ìˆ˜ë¼ê³  ì¶œë ¥í•˜ê³ 
+		//numê°€ 2,3,6,ì˜ë°°ìˆ˜ê°€ì•„ë‹ˆë©´ 2,3,6ì˜ ë°°ìˆ˜ê°€ ì•„ë‹™ë‹ˆë‹¤
+		//ë¼ê³ ì¶œë ¥í•˜ëŠ”ì˜ˆì œ
+		//num = 6 => 6ì˜ ë°°ìˆ˜ì…ë‹ˆë‹¤ë§Œ ì¶œë ¥í•´ì•¼í•œë‹¤
 		
-		//¾Õ¼­ÇÑ¹æ½Ä¸»°í ÁßÃ¸if¹®À»ÀÌ¿ëÇÑ¹æ¹ı
+		//ì•ì„œí•œë°©ì‹ë§ê³  ì¤‘ì²©ifë¬¸ì„ì´ìš©í•œë°©ë²•
 		/*int num = 6;
 		if(num % 2 == 0){
 			if(num % 3 == 0){
-				System.out.println(num+"´Â6ÀÇ¹è¼ö");
+				System.out.println(num+"ëŠ”6ì˜ë°°ìˆ˜");
 			}else {
-			System.out.println(num+"´Â2ÀÇ¹è¼ö");
+			System.out.println(num+"ëŠ”2ì˜ë°°ìˆ˜");
 		}
 		}else if (num % 3 == 0){
-				System.out.println(num+"´Â3ÀÇ¹è¼ö");	
+				System.out.println(num+"ëŠ”3ì˜ë°°ìˆ˜");	
 		}else{
-			System.out.println(num+"´Â2,3,6ÀÇ¹è¼ö°¡¾Æ´Õ´Ï´Ù.");
+			System.out.println(num+"ëŠ”2,3,6ì˜ë°°ìˆ˜ê°€ì•„ë‹™ë‹ˆë‹¤.");
 		}
 		*/
 
@@ -36,18 +36,18 @@ public class Geee2 {
 		/*int num = 3;
 		switch(num%2){
 		case 0: //if(num % 2 == o)
-			System.out.println("Â¦¼ö");
+			System.out.println("ì§ìˆ˜");
 			break;
 			//..
-		case 1: //°ªÀÌ2°¡ÁöÀÌ¹Ç·Î default:·ÎÇØµµµÊ 
-			System.out.println("È¦¼ö");
+		case 1: //ê°’ì´2ê°€ì§€ì´ë¯€ë¡œ default:ë¡œí•´ë„ë¨ 
+			System.out.println("í™€ìˆ˜");
 			
 			}	
 			*/
 		
 		
-		/*´Ş·ÂÀÇ °¢ ´Ş¸¶´Ù ¸¶Áö¸· ÀÏ¼ö°¡ ´Ù¸¨´Ï´Ù
-		 * ´ŞÀÌÀÔ·ÂµÇ¸é ÇØ´çÇÏ´Â ¸¶Áö¸· ÀÏ¼ö¸¦Ãâ·ÂÇÏ´ÂÄÚµå¸¦ switch case¹®À» ÀÌ¿ëÇÏ¿© ÀÛ¼ºÇÏ½Ã¿À
+		/*ë‹¬ë ¥ì˜ ê° ë‹¬ë§ˆë‹¤ ë§ˆì§€ë§‰ ì¼ìˆ˜ê°€ ë‹¤ë¦…ë‹ˆë‹¤
+		 * ë‹¬ì´ì…ë ¥ë˜ë©´ í•´ë‹¹í•˜ëŠ” ë§ˆì§€ë§‰ ì¼ìˆ˜ë¥¼ì¶œë ¥í•˜ëŠ”ì½”ë“œë¥¼ switch caseë¬¸ì„ ì´ìš©í•˜ì—¬ ì‘ì„±í•˜ì‹œì˜¤
 		 * 31 : 1,3,5,7,8,10,12
 		 * 30 : 4,6,9,11
 		 * 28 : 2
@@ -91,36 +91,36 @@ public class Geee2 {
 			System.out.println("31");
 		break;
 		default:
-			System.out.println("Àß¸øÀÔ·ÂÇß½À´Ï´Ù");
+			System.out.println("ì˜ëª»ì…ë ¥í–ˆìŠµë‹ˆë‹¤");
 		}
-		default´Â »ı·«°¡´ÉÇÏÁö¸¸ ¾´´Ù¸é Àú·¸°Ô 
-		if (month ==1 || month ==3 || ) if¸¦ÀÌ¿ëÇÏ¸éÀÌ·±½ÄÀ»ÇÏ¸éµÊ*/
+		defaultëŠ” ìƒëµê°€ëŠ¥í•˜ì§€ë§Œ ì“´ë‹¤ë©´ ì €ë ‡ê²Œ 
+		if (month ==1 || month ==3 || ) ifë¥¼ì´ìš©í•˜ë©´ì´ëŸ°ì‹ì„í•˜ë©´ë¨*/
 		
-		//min~max »çÀÌÀÇ Á¤¼ö¸¦ ·£´ıÀ¸·Î »ı¼ºÇÏ´Â ÄÚµå
+		//min~max ì‚¬ì´ì˜ ì •ìˆ˜ë¥¼ ëœë¤ìœ¼ë¡œ ìƒì„±í•˜ëŠ” ì½”ë“œ
 		/*int min = 1;
 		int max = 10;
 		int random = (int)(Math.random()*(max-min+1) + min);
 		System.out.println(random);*/
-		//ÄÄÀÌ °¡À§ ¹ÙÀ§ º¸Áß¿¡¼­ ·£´ıÀ¸·ÎÇÏ³ª¼±µ†
+		//ì»´ì´ ê°€ìœ„ ë°”ìœ„ ë³´ì¤‘ì—ì„œ ëœë¤ìœ¼ë¡œí•˜ë‚˜ì„ íƒ£
 		/*
 		 * int min = 1;
 		int max = 3;
 		int com = (int)(Math.random()*(max-min+1) + min);
 		int user = 0;
 		Scanner scan= new Scanner(System.in);
-		System.out.println("°¡À§(1),¹ÙÀ§(2),º¸(3)ÁßÇÏ³ª¸¦ÀÔ·ÂÇÏ¼¼¿ä");
+		System.out.println("ê°€ìœ„(1),ë°”ìœ„(2),ë³´(3)ì¤‘í•˜ë‚˜ë¥¼ì…ë ¥í•˜ì„¸ìš”");
 		user = scan.nextInt();
 		switch (user-com) {
 		case 0:
-			System.out.println("¹«½ÂºÎÀÔ´Ï´Ù.");
+			System.out.println("ë¬´ìŠ¹ë¶€ì…ë‹ˆë‹¤.");
 			break;
 		case -1: case2:
-			System.out.println("ÄÄÇ»ÅÍ½ÂÀÔ´Ï´Ù");
-		case 1: case-2:  //default·Î ´ëÃ¼°¡´É
-			System.out.println("»ç¿ëÀÚ½ÂÀÔ´Ï´Ù");
+			System.out.println("ì»´í“¨í„°ìŠ¹ì…ë‹ˆë‹¤");
+		case 1: case-2:  //defaultë¡œ ëŒ€ì²´ê°€ëŠ¥
+			System.out.println("ì‚¬ìš©ììŠ¹ì…ë‹ˆë‹¤");
 		}
 		//System.out.println(com);
-		//152ÆäÀÌÁöºÎÅÍ Âü°í
+		//152í˜ì´ì§€ë¶€í„° ì°¸ê³ 
 		
 		*/
 		

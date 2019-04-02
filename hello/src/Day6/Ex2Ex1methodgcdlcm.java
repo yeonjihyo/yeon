@@ -30,7 +30,7 @@ public class Ex2Ex1methodgcdlcm {
 	 * 매개변수 (입력): 두정수=> int num1, int num2
 	 * 메소드명 : gcd
 	 * 
-	 * */
+	 * */ 
 	
 	/*public static 리턴타입 메소드명(매개변수){
 		구현

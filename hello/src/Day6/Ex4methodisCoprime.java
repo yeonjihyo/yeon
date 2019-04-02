@@ -24,7 +24,7 @@ public class Ex4methodisCoprime {
 	
 	/*
 	 * 기능 : 두 정수가 주어지면 서로소인지 아닌지를 참 또는 거짓으로 아려주는 메소드
-	 * 매개변수 : 두 정수 => int num1 , num2
+	 * 매개변수 : 두 정수 => int num1 , num 2
 	 * 리턴타입 참또는 거짓 => boolean
 	 * 메소드명 : isCoprime
 	 * */

@@ -15,7 +15,7 @@ public class Ex3methodisPrime {
 	/*
 	 * 기능 : 정소가 주어지면 해당 정수가 소수이면 참을 합성수이면 거짓을 알려주는 메서드
 	 * 매개변수 (입력): 정수=> int num
-	 * 리턴타입 (출력): 참 거짓 => boolean
+	 * 리턴타입 (출력): 참 거짓 => boolean 
 	 * 메소드명 : isPrime
 	 * 
 	 * */	

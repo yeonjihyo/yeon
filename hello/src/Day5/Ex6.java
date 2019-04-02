@@ -9,9 +9,9 @@ public class Ex6 {
 		//한명할떄마다 한명씩 확정되기떄문에 마지막은 할 필요가 없으니까
 		for (int i=0;i<arr.length-1;i++){
 			//i=0부터시작하느냐 1부터시작하느냐에 따라 =(같다)를빼야
-			for(int j=0; j<arr.length-1 ; j++){
+			for(int j=0; j<arr.length-1-i ; j++){  //-i를 넣음으로서 확정된애는 비교대상에서 제거하는 역활을함
 				if(arr[j] < arr[j+1]){
-					//숫자가큰애를 뒤로보내고싶을때>
+					//숫자가큰애를 뒤로보내고싶을때<
 					int tmp = arr[j];
 					arr[j] = arr[j+1];
 					arr[j+1] =tmp;

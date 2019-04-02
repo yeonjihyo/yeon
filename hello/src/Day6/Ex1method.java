@@ -54,7 +54,7 @@ public class Ex1method {
 	 * return res; //res라는 값을 돌려줌
 	 * }
 	 * 
-	 * 
+	 *   
 	 * 
 	 * */
 	public static int sum (int num1 , int num2){

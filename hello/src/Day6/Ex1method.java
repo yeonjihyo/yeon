@@ -46,6 +46,8 @@ public class Ex1method {
 	 * 출력 이름 (입력){
 	 * 			구현
 	 * }
+	 *
+	 * 
 	 * 리턴타입 메소드명(매개변수){
 * 				  구현
 	 * }
@@ -53,10 +55,8 @@ public class Ex1method {
  * 			int res = num1+num2;
 	 * return res; //res라는 값을 돌려줌
 	 * }
-	 * 
-	 *   
-	 * 
 	 * */
+	
 	public static int sum (int num1 , int num2){
   		int res = num1+num2;
 	    return res;

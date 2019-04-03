@@ -142,10 +142,13 @@ public class Ex6 {
 		   }
 		   return false;
     }
- * 
- * 
- * 
- * 
+ * 0403일 이어서
+ * 1.random :(최소값과 최대값)사이의 (랜덤한수)를 생성해서 알려주는 메소드
+ * 2.contain (숫자가 배열의 cnt갯수에서)에 (있는지없는지)알려주는 메소드
+ * 3.createRandArr : 배열에 최소값과 최대값 사이의 랜덤한 수로 채우고
+ * 					 (성공여부)를 알려주는 메소드
+ * 매개변수 : int min, int max,int[]arr
+ * 리턴타입 : boolean
  * 
  * 
  * 

@@ -19,7 +19,7 @@ public class ClassEx1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Tv t =null;
+		Tv t =null; //참조변수 초기화는 null
 		t= new Tv (); //Tv라는 생성자를 호출해서 객체를 생성 참조변수임=>주소를저장
 		t.printvolumn();
 		t.volumnDown();

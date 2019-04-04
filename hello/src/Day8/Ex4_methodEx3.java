@@ -76,7 +76,7 @@ public class Ex4_methodEx3 {
 		else if (num<0) return -1; //else return -1; 이렇게 써야 에러가 사라짐
 		
 		}
-	}
+	
 	
 	
 	
@@ -94,7 +94,8 @@ public class Ex4_methodEx3 {
 	이렇게 고칠수있다
 	*/
 	
-	
+	}
+}
 
 
 

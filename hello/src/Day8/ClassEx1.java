@@ -2,12 +2,12 @@ package Day8;
 /*
  * 348p
  *public 접근제한자 
- *클래스 public을 붙일수 있는경우는 단하나다.(메소드에는 계속 쓸수있음)
+ *클래스에 public을 붙일수 있는경우는 단하나다.(메소드에는 계속 쓸수있음)
  *클래스명과 파일명이 일치하는 경우에만 public을 붙일 수 있다.
  *
- *접근제한자 -dafault
- *접근제한자 dafault는 dafault라는 키워드를 쓴것이아니라 클래스나 메소드에 접근제한자를 명시하지 않은 경우를 dafault라고한다
- *dafault는 같은 패키지 안에서맍 접근가능하다.
+ *접근제한자 -default
+ *접근제한자 default는 default라는 키워드를 쓴것이아니라 클래스나 메소드에 접근제한자를 명시하지 않은 경우를 default라고한다
+ *default는 같은 패키지 안에서맍 접근가능하다.
  *
  *접근제한자 private
  *일반적으로 멤버 메소드나 멤버 변수에 붙이고 
@@ -21,8 +21,9 @@ public class ClassEx1 {
 		// TODO Auto-generated method stub
 		Tv t =null; //참조변수 초기화는 null
 		t= new Tv (); //Tv라는 생성자를 호출해서 객체를 생성 참조변수임=>주소를저장
+		//줄여쓰면 Tv t = new Tv(); 와 같음 
 		t.printvolumn();
-		t.volumnDown();
+		t.volumnUp();
 		t.printvolumn();
 		//t.//public은안됨 private이므로
 		//객체이름. 으로 이용해야함

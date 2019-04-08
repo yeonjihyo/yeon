@@ -10,7 +10,7 @@ public class Rect extends Shape  {
 	}
 	//setter를 필요하지 않다.
 	//외부에서만 데이터를 접근할 수 있도록 하는 것이기 떄문에 예를 들면 4*8은 32인데 30을 주라고 할수있으니까???
-	public Rect(){}
+	public Rect(){}//안정성을 위해 추가 
 	public Rect (int x,int y, int w, int h){
 		super(x,y,w,h);//부모클래스의 생성자를 호출
 		area =w*h;

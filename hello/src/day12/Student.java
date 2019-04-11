@@ -1,5 +1,21 @@
 package day12;
 
+/*
+ * 클래스가 왜 필요?
+학생의 정보( 각각 이름,학년,반,번호..)를 따로 관리를 하면 불편하기 때문에 하나로 묶는 클래스를 만들면 편해서 클래스를 사용
+
+getter, setter가 왜 필요한가?
+-학생클래스의 멤버변수를 public으로 설정하면 직접 정보를 변경할 수 있다
+-그래서 학생의 국어 성적을 입력하는 중 실수로 200점을 입력하면 반영이 되면 안되는상황이지만 수정이 되서 원하지 않는 결과가
+발생한다 
+
+
+생성자 : 멤버변수를 초기화
+
+300, 304P참고
+멤버변수초기화 순서 
+명시적초기화> 초기화블록>생성자
+ * */
 public class Student{
 	private String name; //학생이름  //String는 클래스이고 name는 객체임 
 	private int grade;//학생학년
@@ -70,7 +86,7 @@ public class Student{
 	//public Student(){}
 	//리턴타입이없고 이름이 클래스명과 동일
 	public Student(){
-		/*name= new String(); //name="";
+		/*name= new String(); //name="";//기본값이 null이지만 ""으로 설정해서  공백으로 뜨게~
 		grade=1;
 		classNum=1;
 		num=1;*/

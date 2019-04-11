@@ -1,10 +1,13 @@
 package day12;
 
-public class StudentManager {
+import java.util.Scanner;
+
+public class StudentManager { //배열을 관리 
 	//학생들 정보를 담을 배열
 	private Student std[]; //학생정보를 관리하기 위해 여러개를 담을 정보를 배열로 하겠다라는 뜻
 	private int count;		//현재 저장된 학생수 
 	private final int MIN_STUDENT_COUNT=300;
+	
 	public StudentManager(){
 		//배열은 스스로만들어야하는 참조변수기때문에 생성해야
 		std= new Student[MIN_STUDENT_COUNT];
@@ -27,10 +30,19 @@ public class StudentManager {
 		//std[??] : Student 클래스의 객체는 초기에 선언만 되어 있음
 		//insert기능에서 객체정보를 추가하려면 new를 통해 객체를 생성한 후 
 		//매개변수의 값을 복사해야함
+		//std[count++]=s; //문법적으로 틀린 부분은 없으나 
+		//하나의 객체를 매개변수 s와  std[count]=s;가 같이 사용하기 떄문에 
+		//매개변수s가 바뀌면 std[count]도 같이 바뀔수 있다
+		
+		//학년,반,번호로 검색해서 해당학생정보가 없으면 학생정보 추가
+		//있으면 아무것도 안함
+		if(search(s.getGrade(),s.getClassNum(),s.getNum())==-1){
+		
 		std[count++]=new Student(s);//복사생성자를 불러옴
 		//count번지에 학생을 추가?? 
 		//std[count++]=new Student(s);
 		//count++; 이 걸 생략하고 위에처럼 더 간단하게 쓸 수 있다
+		}
 	}
 	 
 	
@@ -89,7 +101,7 @@ public class StudentManager {
 	public void delete(Student s){
 		int searchIndex 
 	    = search(s.getGrade(),s.getClassNum(),s.getNum()); 
-	if (searchIndex !=-1){
+	if (searchIndex !=-1){//찾았으면
 		//배열을밀기
 		for (int i= searchIndex;i<count-1;i++){
 			std[i] =std [i+1];//std [i+1]에서 std [i]를 덮어쓴다는 의미
@@ -101,6 +113,55 @@ public class StudentManager {
 	}
 	
 	}
+	public void printMenu(){
+		System.out.println("-----------------");
+		System.out.println("1. 학생정보추가");
+		System.out.println("2. 학생정보수정");
+		System.out.println("3. 학생정보삭제");
+		System.out.println("4. 학생정보출력");
+		System.out.println("5. 종료");
+		System.out.print("메뉴를 선책하세요 : ");
+	}
+	
+	
+	/*기능 : Scanner가 주어지면 검색을 위한 학생의 정보를 콘솔을 통해 입력받아 학생 객체를 만들어 돌려주는 기능
+	매개변수 : Scanner scan
+	리턴타입 : 학생객체=>Student
+	메소드명 : inputSearchStudent
+	*/
+	
+	public Student inputSearchStudent (Scanner scan){
+		Student s=new Student();
+		System.out.print("학년: ");
+		s.setGrade(scan.nextInt());
+		System.out.print("반: ");
+		s.setClassNum(scan.nextInt());
+		System.out.print("번호: ");
+		s.setNum(scan.nextInt());
+		return s;
+	}
+	
+	
+	/*기능 : Scanner가 주어지면 학생의 정보를 콘솔을 통해 입력받아 학생 객체를 만들어 돌려주는 기능
+	매개변수 : Scanner scan
+	리턴타입 : 학생객체=>Student
+	메소드명 : inputStudent
+	*/
+	public Student inputStudent (Scanner scan){
+		Student s= inputSearchStudent(scan);
+		System.out.print("이름: ");
+		s.setName(scan.next());//scan.next()콘솔에서입력받을때까지 대기를 하고 이름 쓰고 엔터누르면 리턴타입인 문자열로 돌려줌??next가 공백을 포함하기떄문에
+		System.out.print("국어: ");
+		s.setKor(scan.nextInt());
+		System.out.print("영어: ");
+		s.setEng(scan.nextInt());
+		System.out.print("수학: ");
+		s.setMath(scan.nextInt());
+		return s;
+	}
+
+
+	
 	
 	
 }

@@ -40,7 +40,7 @@ public class StudentManager { //배열을 관리
 		
 		std[count++]=new Student(s);//복사생성자를 불러옴
 		//count번지에 학생을 추가?? 
-		//std[count++]=new Student(s);
+		//std[count]=new Student(s);
 		//count++; 이 걸 생략하고 위에처럼 더 간단하게 쓸 수 있다
 		}
 	}
@@ -57,6 +57,7 @@ public class StudentManager { //배열을 관리
 			System.out.println(std[i]);
 		}
 	}
+	
 	/*학생정보를 수정 또는 삭제하기 위해 학생정보가 있는지를 알아야하기 때문에
 	//학생정보 검색 ==> 학생정보수정하려면 어떤학생을 수정할지 검색해봐야하니까
 	기능 : 학생정보 검색해서 없으면 -1을 있으면 배열에 위치한 번지를 알려주는 기능
@@ -120,7 +121,7 @@ public class StudentManager { //배열을 관리
 		System.out.println("3. 학생정보삭제");
 		System.out.println("4. 학생정보출력");
 		System.out.println("5. 종료");
-		System.out.print("메뉴를 선책하세요 : ");
+		System.out.print("메뉴를 선택하세요 : ");
 	}
 	
 	

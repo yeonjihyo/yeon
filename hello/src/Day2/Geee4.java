@@ -49,28 +49,6 @@ public class Geee4 {
 			System.out.println(num+"는소수가아님");
 		}
 	
-		int num, i, cnt;
-		Scanner scan = new Scanner(System.in);
-		num = scan.nextInt();
-		for(i=1,cnt=0; i<=num; i++){
-			if(num % i ==0){
-				cnt++;
-			}
-		}
-		if(cnt ==2){
-			System.out.println(num+"는소수");
-		}
-		else{
-			System.out.println(num+"는소수가아님");
-		}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 	}

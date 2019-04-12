@@ -16,7 +16,7 @@ public class ForEx2 {
 		//1.배열이나 컬렉션프레임워크일때 사용 
 		//2.배열의 값을 확인할때 사용
 		//3.배열의 값을 수정할때는 사용하지 않음
-		//4.모든 배열을 확인
+		//4.모든 배열을 확인하면서 번지를 신경안쓸때
 		
 		for(int tmp : arr){ 
 			System.out.print(tmp+" ");
@@ -44,7 +44,7 @@ public class ForEx2 {
 		System.out.println();
 				
 		//위의 배열에서 가장 큰수를 출력하세요
-		int max=arr[0];
+		int max=arr[0]; //최대값최소값은 배열의 0번지에있는값을 넣음 어짜피 배열을 다확인하고 비교하기때문에 
 		for (int tmp : arr){
 			if(max<tmp){
 				max =tmp;

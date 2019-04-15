@@ -31,18 +31,20 @@ public class ForEx2 {
 
 		
 		//위의 배열에서 짝수번지에 있는 값을 출력하세요
-		/*for (i=0;i<arr.length;i++){
-			if (i%2==0){
-				System.out.println(arr[i]);
-			}
-		}*/
 		
-		for (i=0;i<arr.length;i+=2){
+		for (i=0;i<arr.length;i++){
+			if (i%2==0){
+				System.out.print(arr[i]+" ");
+			}
+		}
+		System.out.println();
+		
+		/*for (i=0;i<arr.length;i+=2){
 			int tmp=arr[i];
 			System.out.print(tmp+" ");
 		}
 		System.out.println();
-				
+				*/
 		//위의 배열에서 가장 큰수를 출력하세요
 		int max=arr[0]; //최대값최소값은 배열의 0번지에있는값을 넣음 어짜피 배열을 다확인하고 비교하기때문에 
 		for (int tmp : arr){

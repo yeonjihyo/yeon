@@ -4,6 +4,7 @@ import java.util.HashSet;
 
 public class HashSetEx3 {
 
+	//634p 예제 11-23
 	public static void main(String[] args) {
 		HashSet set=new HashSet();
 		/*문자열 abc를 set에 여러번 추가하면 추가할때마다 String클래스의 오버라이딩된 equals()와 hashCode()가 
@@ -23,9 +24,9 @@ public class HashSetEx3 {
 		set.add(new Person ("David",10));
 		/*
 		 * abc는 String의 equals를 호출해서 중복으로 간주하고 중복을 제거하지만
-		 * person은 Object의 equals를 호출하기 떄문에 Object는 주소값이 같아야만 다른객체로 생각하는데  다른 주소로 인식해서 중복으로 생각하지않아서    
-		 * 
-		 * 
+		 * person은 Object의 equals를 호출하기 떄문에 
+		 * Object는 주소값이 같아야만 하나로 생각을하는데    
+		 * 다른 주소로 인식해서 중복으로 생각하지않아서  2개가 출력된것
 		 * */
 		System.out.println(set);
 
@@ -46,7 +47,7 @@ class Person{
 		return name+":"+age;
 	}
 	
-	
+	//오버라이딩을 통해 중복을 제거함 
 	@Override
 	public int hashCode() {
 		final int prime = 31;

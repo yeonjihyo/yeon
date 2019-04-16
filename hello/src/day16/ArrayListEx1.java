@@ -15,7 +15,7 @@ public class ArrayListEx1 {
 		 * -맵은 두개의 값을 이용 
 		 * -list: 순서, 중복허용
 		 * -set : 순서 보장하지 않음,중복불가
-		 * map : key,value로 이루어짐 key는 중복불과 vwlue는 중복가능
+		 * map : key,value로 이루어짐 key는 중복불과 value는 중복가능
 		 *            id와 pw로 생각하면됨
 		 * -ArrayList : list인터페이스를 구현한 클래스
 		 * -ArrayList의 객체를 생성할때 어떤 데이터 (자료형 또는 클래스)를 이용할건지 결정해주어야한다.            

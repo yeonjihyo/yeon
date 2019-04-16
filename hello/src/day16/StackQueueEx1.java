@@ -6,10 +6,8 @@ import java.util.Stack;
 
 public class StackQueueEx1 {
 	
-	//
-	//
-	//
-	//
+	//604p 예제 11-7
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

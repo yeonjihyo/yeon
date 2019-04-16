@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 public class HashSetEx2 {
-
+//632p 예제 11-21
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Set set=new HashSet(); //중복된 값을 가지지않는 set을 이용한다

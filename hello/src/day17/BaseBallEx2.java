@@ -9,6 +9,34 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class BaseBallEx2 {
+	/*
+	 * 숫자야구게임
+
+선택된 중복되지 않은 1~9사이의 3개의 숫자를 맞추는 게임 
+스트라이크 : 자리수와 숫자가 일치하는 경우 
+볼 : 해당 숫자는 있지만 자리수가 안맞는 경우
+3out : 일치하는 숫자가 없는 경우
+3s : 전부다 일치 ==> 게임종료
+
+
+예
+com 1 3 9
+1 2 3
+1S 2B
+
+4 5 6
+3Out
+
+7 8 9 
+1S
+
+9 1 3
+3B
+
+1 3 9
+3S 정답입니다
+프로그램을 종료합니다. 
+	 * */
 
 	public static void main(String[] args) {
 		/*
@@ -116,6 +144,5 @@ public class BaseBallEx2 {
 	
 }
 
-	
 	
 

@@ -42,10 +42,14 @@ public class LottoEx1 {
 			return null;
 		//1~3인데 중복되지 않아야 하는 숫자가 4인경우 4번쨰는 중복될수 밖에 없기 떄문에 
 		//이럴경우 무한루프에 빠지기때문에 그걸 막기 위해 추가해준다.
-		
+		//max :10 min :1
+		//max와 min에서 나올 수 있는 중복되지 않은 수는 최대 몇개 10개
+		//count : 만들갯수 예 11개 
+		//randomArr (1,4,7); 이경우에 리턴됨
 		
 		Set<Integer> set=new HashSet(); 
-		while(set.size()<count){  //원하는 갯수만큼 만들기 위해( =은 뺴야함 set.size가 0부터 시작하기 떄문에 ) 
+		while(set.size()<count){  //원하는 갯수만큼 만들기 위해( =은 뺴야함 set.size가 0부터 시작하기 떄문에  )
+														//=>위에만든 new HashSet() 은 비어있는거지 null이 아니기 떄문에 set.size는 0부터 시작 
 			//min~max사이의 랜덤한 수를 생성하여 num에 저장
 			int num=(int)(Math.random()*(max-min+1))+min;
 			//랜덤한 num을 set에 추가 

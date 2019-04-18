@@ -120,5 +120,31 @@ public class Student{
 		return "이름 : " + name + ", 학년 : " + grade + ", 반 : " + classNum + ", 번호 : " + num + ", 국어성적 : " + kor
 				+ ", 영어성적 : " + eng + ", 수학성적 : " + math + "]";
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + classNum;
+		result = prime * result + grade;
+		result = prime * result + num;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (classNum != other.classNum)
+			return false;
+		if (grade != other.grade)
+			return false;
+		if (num != other.num)
+			return false;
+		return true;
+	}
 	
 }

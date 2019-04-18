@@ -11,7 +11,7 @@ public class IteratorEx {
 		HashSet<String> hSet = new HashSet<String>();
 	
 		 Iterator<String> it=hSet.iterator();
-		  while(it.hasNext()){
+		  while(it.hasNext()){//가져올 객체정보가 있는지 없는지 
 		  //자식 =(자식)부모
 		  String obj=(String)it.next();
 		  }

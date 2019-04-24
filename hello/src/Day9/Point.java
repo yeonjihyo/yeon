@@ -63,7 +63,7 @@ public class Point {
 	//리턴타입필요없음
 	public void move(int x, int y){
 		setX(x); //this.x=x;
-		setX(y); //this.x=y;
+		setY(y); //this.x=y;
 	}
 	//현재좌표출력
 	public void print(){

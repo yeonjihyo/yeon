@@ -26,10 +26,10 @@ DROP TABLE IF EXISTS `deliver`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `deliver` (
   `deliver_no` int(11) NOT NULL AUTO_INCREMENT,
-  `deliver_address` varchar(45) DEFAULT NULL,
-  `deliver_recipient` varchar(45) DEFAULT NULL,
-  `deliver_recipientphone` varchar(20) DEFAULT NULL,
-  `deliver_waybillnum` varchar(45) DEFAULT NULL COMMENT '운송장번호',
+  `deliver_address` varchar(45) NOT NULL,
+  `deliver_recipient` varchar(45) NOT NULL,
+  `deliver_recipientphone` varchar(20) NOT NULL,
+  `deliver_waybillnum` varchar(45) NOT NULL COMMENT '운송장번호',
   PRIMARY KEY (`deliver_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='배송';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,7 +40,7 @@ CREATE TABLE `deliver` (
 
 LOCK TABLES `deliver` WRITE;
 /*!40000 ALTER TABLE `deliver` DISABLE KEYS */;
-INSERT INTO `deliver` VALUES (1,'청주시흥덕구','정약용','01012345678',NULL),(2,'서울특별시성북구','임꺽정','01012341234',NULL);
+INSERT INTO `deliver` VALUES (1,'청주시흥덕구','정약용','01012345678','123456789'),(2,'서울특별시성북구','임꺽정','01012341234','987654321');
 /*!40000 ALTER TABLE `deliver` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-07 16:51:32
+-- Dump completed on 2019-05-09 17:09:37

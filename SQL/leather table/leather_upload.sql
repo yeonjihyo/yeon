@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `upload`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `upload` (
-  `upload_no` int(11) NOT NULL AUTO_INCREMENT,
+  `upload_no` int(11) NOT NULL,
   `upload_notice_no` int(11) DEFAULT NULL,
   `upload_product_code` varchar(45) DEFAULT NULL,
   `upload_filepath` varchar(255) DEFAULT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `upload` (
   KEY `upload_product_code_idx` (`upload_product_code`),
   CONSTRAINT `upload_notice_no` FOREIGN KEY (`upload_notice_no`) REFERENCES `notice` (`notice_no`),
   CONSTRAINT `upload_product_code` FOREIGN KEY (`upload_product_code`) REFERENCES `product` (`product_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='첨부파일';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='첨부파일\n외래키인 공지사항번호와 제품코드에 NN을 체크하지 않는 이유는 두가지경우에서 쓰기 위해서임 ';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-07 16:51:33
+-- Dump completed on 2019-05-09 17:09:37

@@ -18,33 +18,32 @@ USE `leather`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `notice`
+-- Table structure for table `nonuserlist`
 --
 
-DROP TABLE IF EXISTS `notice`;
+DROP TABLE IF EXISTS `nonuserlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `notice` (
-  `notice_no` int(11) NOT NULL AUTO_INCREMENT,
-  `notice_user_id` varchar(45) NOT NULL,
-  `notice_title` varchar(255) DEFAULT NULL,
-  `notice_contents` longtext,
-  `notice_views` int(11) DEFAULT '0',
-  `notice__registered_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`notice_no`),
-  KEY `notice_user_id_idx` (`notice_user_id`),
-  CONSTRAINT `notice_user_id` FOREIGN KEY (`notice_user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='공지사항';
+CREATE TABLE `nonuserlist` (
+  `nonuserlist_no` int(11) NOT NULL AUTO_INCREMENT,
+  `nonuserlist_nonuserorder_num` varchar(45) NOT NULL,
+  `nonuserlist_product_code` varchar(45) NOT NULL,
+  `nonuserlist_count` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`nonuserlist_no`),
+  KEY `nonuserlist_nonuserorder_num_idx` (`nonuserlist_nonuserorder_num`),
+  KEY `nonuserlist_product_code_idx` (`nonuserlist_product_code`),
+  CONSTRAINT `nonuserlist_nonuserorder_num` FOREIGN KEY (`nonuserlist_nonuserorder_num`) REFERENCES `nonuserorder` (`nonuserorder_num`),
+  CONSTRAINT `nonuserlist_product_code` FOREIGN KEY (`nonuserlist_product_code`) REFERENCES `product` (`product_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='비회원주문제품리스트';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `notice`
+-- Dumping data for table `nonuserlist`
 --
 
-LOCK TABLES `notice` WRITE;
-/*!40000 ALTER TABLE `notice` DISABLE KEYS */;
-INSERT INTO `notice` VALUES (1,'administrator','배송안내','배송관련안내',0,'2019-05-03 15:16:00'),(2,'administrator','환불안내','환불관련안내',0,'2019-05-03 15:34:07'),(3,'administrator','영업시간안내','영업시간관련안내',0,'2019-05-03 15:34:07');
-/*!40000 ALTER TABLE `notice` ENABLE KEYS */;
+LOCK TABLES `nonuserlist` WRITE;
+/*!40000 ALTER TABLE `nonuserlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nonuserlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-09 17:09:37
+-- Dump completed on 2019-05-09 17:09:38

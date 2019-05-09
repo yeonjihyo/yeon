@@ -26,8 +26,8 @@ DROP TABLE IF EXISTS `qna`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `qna` (
   `qna_no` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Q&A번호',
-  `qna_product_code` varchar(45) DEFAULT NULL COMMENT '제품코드',
-  `qna_writer` varchar(45) DEFAULT NULL COMMENT '작성자',
+  `qna_product_code` varchar(45) NOT NULL COMMENT '제품코드',
+  `qna_writer` varchar(45) NOT NULL COMMENT '작성자',
   `qna_title` varchar(255) DEFAULT NULL COMMENT '제목',
   `qna_contents` longtext COMMENT '내용',
   `qna_views` int(11) DEFAULT '0' COMMENT '조회수',
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-07 16:51:33
+-- Dump completed on 2019-05-09 17:09:38

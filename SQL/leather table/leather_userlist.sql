@@ -18,38 +18,32 @@ USE `leather`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `buy`
+-- Table structure for table `userlist`
 --
 
-DROP TABLE IF EXISTS `buy`;
+DROP TABLE IF EXISTS `userlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `buy` (
-  `buy_no` int(11) NOT NULL AUTO_INCREMENT COMMENT '구매번호',
-  `buy_user_id` varchar(45) NOT NULL COMMENT '아이디',
-  `buy_product_code` varchar(45) NOT NULL COMMENT '제품코드',
-  `buy_deliver_no` int(11) NOT NULL DEFAULT '0' COMMENT '배송번호',
-  `buy_state` varchar(10) DEFAULT NULL COMMENT '주문상태',
-  `buy_date` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '구매일',
-  `buy_count` int(11) DEFAULT '1',
-  PRIMARY KEY (`buy_no`),
-  KEY `buy_user_id_idx` (`buy_user_id`),
-  KEY `buy_product_code_idx` (`buy_product_code`),
-  KEY `buy_deliver_no_idx` (`buy_deliver_no`),
-  CONSTRAINT `buy_deliver_no` FOREIGN KEY (`buy_deliver_no`) REFERENCES `deliver` (`deliver_no`),
-  CONSTRAINT `buy_product_code` FOREIGN KEY (`buy_product_code`) REFERENCES `product` (`product_code`),
-  CONSTRAINT `buy_user_id` FOREIGN KEY (`buy_user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='구매';
+CREATE TABLE `userlist` (
+  `userlist_no` int(11) NOT NULL AUTO_INCREMENT COMMENT '회원주문제품리스트번호',
+  `userlist_order_num` varchar(45) NOT NULL COMMENT '회원주문번호',
+  `userlist_product_code` varchar(45) NOT NULL COMMENT '제품코드',
+  `userlist_count` int(11) NOT NULL DEFAULT '1' COMMENT '수량',
+  PRIMARY KEY (`userlist_no`),
+  KEY `userlist_order_num_idx` (`userlist_order_num`),
+  KEY `uesrlist_product_code_idx` (`userlist_product_code`),
+  CONSTRAINT `uesrlist_product_code` FOREIGN KEY (`userlist_product_code`) REFERENCES `product` (`product_code`),
+  CONSTRAINT `userlist_order_num` FOREIGN KEY (`userlist_order_num`) REFERENCES `order` (`order_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='회원주문제품리스트';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `buy`
+-- Dumping data for table `userlist`
 --
 
-LOCK TABLES `buy` WRITE;
-/*!40000 ALTER TABLE `buy` DISABLE KEYS */;
-INSERT INTO `buy` VALUES (1,'a123','tool001001',1,'결제완료','2019-05-03 14:27:52',1),(2,'a123','edgecoat001001',1,'결제완료','2019-05-03 14:27:52',1),(3,'b123','thread001001',2,'배송완료','2019-05-03 15:11:49',2);
-/*!40000 ALTER TABLE `buy` ENABLE KEYS */;
+LOCK TABLES `userlist` WRITE;
+/*!40000 ALTER TABLE `userlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `userlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -61,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-07 16:51:32
+-- Dump completed on 2019-05-09 17:09:38

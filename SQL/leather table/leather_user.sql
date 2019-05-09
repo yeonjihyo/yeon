@@ -27,11 +27,11 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `user_id` varchar(45) NOT NULL COMMENT '아이디',
   `user_pw` varchar(255) NOT NULL COMMENT '비밀번호',
-  `user_name` varchar(45) DEFAULT NULL COMMENT '이름',
-  `user_phone` varchar(20) DEFAULT NULL COMMENT '폰',
+  `user_name` varchar(45) NOT NULL COMMENT '이름',
+  `user_phone` varchar(20) NOT NULL COMMENT '폰',
   `user_address` varchar(45) DEFAULT NULL COMMENT '주소',
-  `user_email` varchar(45) DEFAULT NULL COMMENT '이메일',
-  `user_grade` varchar(45) DEFAULT NULL COMMENT '등급',
+  `user_email` varchar(45) NOT NULL COMMENT '이메일',
+  `user_grade` varchar(10) DEFAULT NULL COMMENT '등급',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='회원';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-07 16:51:33
+-- Dump completed on 2019-05-09 17:09:38

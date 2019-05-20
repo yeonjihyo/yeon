@@ -4,7 +4,7 @@ public class Ex2 {
 
 	public static void main(String[] args) {
 		
-		/*1~6À» ¹è¿­¿¡ ÀúÀåÇÏ´Â ÄÚµå¸¦ ÀÛ¼ºÇÏ¼¼¿ä */
+		/*1~6ì„ ë°°ì—´ì— ì €ì¥í•˜ëŠ” ì½”ë“œë¥¼ ì‘ì„±í•˜ì„¸ìš” */
 		int arr[]=new int[6];
 		 for (int i=0;i<arr.length;i++){
 			 arr[i]=i+1;

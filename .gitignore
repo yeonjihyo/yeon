@@ -32,3 +32,7 @@ hs_err_pid*
 
 # End of https://www.gitignore.io/api/java
 \.metadata/
+
+*.fdt
+
+\.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/

@@ -35,4 +35,4 @@ hs_err_pid*
 
 *.fdt
 
-\.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/
+\.recommenders/

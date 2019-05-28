@@ -1,0 +1,33 @@
+
+body{
+    font-weight: 400; /* 글자굵기*/
+    /*font-size: 20PX;*/ /*글자크기*/
+    font-size: 1.5em;/*글자크기 em은 배수를 뜻함*/
+    /*font-family:   /*글꼴*/
+    text-decoration: underline;
+    /*color: #ff0000;*/
+    /*color : red*/
+    color: rgb(255,0,0);
+    text-align: right; /*정렬*/
+}
+body>div{  /*body의 자식인div 의 폰트 사이즈를 줄여 공백을 없앤다*/
+    font-size: 0px;
+}
+div>div { /*div*/
+    font-size: 20px;
+    /*박스를 어떻게 만들지 정할때 display를 쓴다*/
+    display: inline-block; /*inline으로 하면 한줄에다나타남*/
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border: 1px solid blue; 
+    /*css적는순서가 중요 =>중복되면 덮어쓰기를 할 수 있기 때문에
+    border는 적는순서는필요없음=> 가질수있는값이다르기때문에*/
+    border-radius: 10px;/*테두리의둥근정도*/
+    width: 100px;
+    height: 100px;
+    /*float: left; 공백을 제거? 박스를감싸지않아문제가생김*/
+
+
+
+}

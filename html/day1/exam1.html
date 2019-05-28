@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+	<!-- HTML에서는 엔터와 여러개의 공백이 하나의 공백으로 인식(처리)된다.	 -->
+	<!-- block 태그는 라인이 바뀌는 태그
+		 inline 태그는 라인이 바뀌지 않는 태그 -->
+		 <!-- 주석처리는 블록지정후 ctrl + /  -->
+		 <h1>제목1</h1>
+		 <h2>제목2</h2>
+		 <h3>제목3</h3>
+		 <h4>제목4</h4>
+		 <h5>제목5</h5>
+		 <h6>제목6</h6>
+
+    <p>
+    <i>안녕하세요.</i> 제 이름은 <b>홍길동</b>입니다.<br> 
+	만나서 반갑습니다</p>
+	저도 만나서 반갑습니다.
+	<hr>
+	<!-- div 는 block태그로 상자역할을 하고 컨텐츠를 감싸는 역할 -->
+	<div>안녕하세요. 제 이름은 홍길동입니다.
+	</div>
+	저도 만나서 반갑습니다.
+	<!-- 단일태그는 닫기전에 /를 쓴다. 안써도 되지만 쓰는게좋음 -->
+	<!-- img는 inline태그 =>라인이안바뀌니까 =>엔터 영향이 있다
+		src 소스 alt 이미지를 가져오는데 실패했을때 머로 보여줄지 대체하는거-->
+	<!-- 절대경로:최상위부터  /
+	상대경로:내위치를기준으로 ../-->
+	<!-- 엔터에 의한 공백을 기억 (엔터치면 자동으로 공백이 들어간다)
+	사진크기 : 픽셀과 %만 가능  
+			가로세로중 하나의 값만 주면 나머지는 자동으로비율을 유지하며 바뀐다
+		% : 브라우저 크기에 따라 달라질수 있다 잘안씀 해상도가 깨질 수 있다 -->
+		<img src="data:image/jpeg;base64,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" alt="" />
+	<img src="/img/cat12.jpg" alt="그림없음">
+	<img src="../img/cat1.jpg" alt="" width="100%" height="100%">
+	
+	<!-- 
+	버튼에서 꼭 기억해야할 사항
+	일반적인 곳에서는 문제가 안되는데 form태그 안에서는 다음 내용을 기억해야한다.
+	form태그 안이 아닌 곳에서는 botton에 type을 지정안하는 경우 type에 button이 적용된다
+	그런데 form태그 안에서는 버튼 타입을 지정 안하는 경우 type이 submit으로 적용된다
+	따라서 form태그 안에서 일반 버튼으로 처리하고 싶으면 type을 button으로 꼭 지정해야한다.
+	내가이해=>submit는 데이터를 전송하는거고 button은 데이터를 전송하지 않는다 로 이해
+	 -->
+	 <br>
+	<button>버튼</button>
+	 <form action="/test" method="GET">
+			<button>타입지정x</button>
+			<button type="button">타입지정o</button>
+	</form>
+
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+	
+</body>
+</html>

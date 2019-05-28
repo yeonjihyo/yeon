@@ -1,0 +1,39 @@
+/*a태그*/
+a:visited{
+    color: black;
+}
+a:hover{
+    color: red;
+}
+input:focus{
+    color: red;
+    background-color: green; /*배경색*/
+}
+#form>input:nth-child(2n){/*짝수:even,2n 홀수:odd,2n-1,2n+1*/ 
+		border: 1px solid red;
+		/*
+		4개를 쓰면 top을 기준으로 시계방향으로 적용
+		=> top > right> bottom > left 순으로 적용
+		3개를 쓰면 top를 기준으로 시계방향으로 적용
+		=> top > right> bottom > left(right의 값 : 2번째값) 순으로 적용
+		2개를 쓰면  top를 기준으로 시계방향으로 적용
+		=> top > right> bottom(top의 값) > leftleft(right의 값) 순으로 적용
+		1개를 쓰면 해당값이 모든 방향에 적용
+			*/
+		padding: 10px 20px 30px 40px;
+}
+.box{
+	width: 500px;/*가로세로의 길이가 컨텐츠에 기준으로 되어있다*/
+	height: 500px;
+	border: 1px solid black;
+	/*border에 -top -right -left를 써서 볼수 있다*/
+	margin: 10px 20px 30px 40px; /*박스를 이동시킬 수 있다,*/
+	padding: 10px; /*안에컨텐츠의시작점을움직임*/
+}
+*{
+	box-sizing: border-box;
+	/*컨텐츠가 아닌 전체 박스의 크기를 500 500으로 한다*/
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
+}
+/*박스크기를 기준으로 할건지 아닌지를 결정해야한다.*/

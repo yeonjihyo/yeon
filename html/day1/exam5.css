@@ -1,0 +1,12 @@
+/* 가로는 화면 전체의 가로, 세로는 500px이고 테두리색은 blue이고 
+       테두리 종류는 solid 굵기는 1px인 div를 생성하세요 -*/
+div{
+	/*display: inline-block ;
+	width: 100%;
+	박스를 어떻게 만들지 정할때 display를 쓴다
+	inline-block의 경우 라인은 유지하지만 가로세로의길이를 변경할 수 있기
+	때문에 width를 써서
+	width: 100%;*/
+height: 500px;
+border: 1px solid blue;
+}

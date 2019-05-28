@@ -1,0 +1,28 @@
+/*태그클래스명, 태그아이디명, 아이디명클래스명
+태그&&클래스명, 태그&&아이디명, 아이디명&&클래스명일때 적용됨*/
+b.italic{ /*b태그이면서 클래스명이 italic인 경우 b.italic을 적용*/
+    font-style: italic;
+}
+
+body b{ /*조상자손*/
+    color: green;
+}
+body>b{ /*부모자식*/
+    font-weight: 900;
+    color:blue;
+}
+/* 1.안녕하세요는 위에 두 개가 우선순위가 같기 때문에 
+나중에 오는게 적용돼서 파란색이 적용된다.  */
+
+b{
+    font-weight: 100;
+    color: red;
+}
+body>div>a{
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+}
+#id{
+
+}

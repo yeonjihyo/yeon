@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.table th,
+		.table td{
+			width: 100px;
+			height: 40px;
+			border: 1px solid black;
+			
+		}	
+		table{
+			border-collapse: collapse;    
+			/* 표를 만들었을때의 이중선이 사라지고 하나의 선으로 됨 */
+		} 
+		
+
+		.course th,
+		.course td{
+			width: 100px;
+			height: 30px;
+			text-align: center;
+		}
+		.course td{
+			text-align: right;
+			border-bottom: 1px solid black;
+		}
+		.course tr td:nth-child(1){
+			text-align: center;
+		}
+		.course thead,
+		.course tfoot{
+			background-color: rgb(217, 197, 235);
+			color : white;
+		}
+		.course tbody{
+			color: green;
+		}
+		.course tbody tr:hover, /*tr:hover은 띄어쓰기하면 자손관계로 인식하기 때문에 띄워쓰면 안됨*/
+		.course tfoot tr:hover{	
+			background-color:blue;
+			color:red;
+			font-weight: bold;
+			cursor: pointer;
+		} 
+		
+
+	</style>
+</head>
+<body>
+	<!-- 
+		tr 한행(한줄)
+		th 기본값이 굵은글씨 정렬이 가운데로 돼있음
+		td
+		둘중 필요에 따라 쓰면됨 
+		rowspan 행을 합치는거 
+		colspan 열을 합치는거 
+
+	 -->
+	<table class="table">
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>나이</th>
+				<th>주소</th>
+				<th>성별</th>
+				<th colspan="2">주민번호</th>
+				</tr>
+		</thead>
+		<tfoot>
+			<td>-</td>
+			<td>20</td>
+			<td>-</td>
+			<td>남</td>
+			<td>-</td>
+			<td>-</td>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td rowspan="2">홍길동</td>
+				<td>20</td>
+				<td>대한민국</td>
+				<td>남</td>
+				<td>0001010-3000000</td>
+				<td>0001010-3000000</td>
+			</tr>
+			<tr>
+				<td>20</td>
+				<td>대한민국</td>
+				<td>남</td>
+				<td>0001010-3000000</td>
+				<td>0001010-3000000</td>
+			</tr>
+		</tbody>
+		
+	</table>
+	<br>
+
+
+	<table class="course">
+		<thead>
+			<th>이름</th>
+			<th>HTML</th>
+			<th>CSS</th>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>합</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>황기태</td>
+				<td>80</td>
+				<td>70</td>
+			</tr>
+			<tr>
+				<td>이재문</td>
+				<td>95</td>
+				<td>99</td>
+			</tr>
+			<tr>
+				<td>이병은</td>
+				<td>85</td>
+				<td>90</td>
+			</tr>
+			<tr>
+					<td>김남윤</td>
+					<td>50</td>
+					<td>40</td>
+			</tr>
+		
+		
+	
+
+		</tbody>
+
+
+	</table>
+</body>
+</html>

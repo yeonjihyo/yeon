@@ -1,0 +1,49 @@
+.hi{
+	font-size: 40px;
+	font-weight: bold;
+	animation-duration: 2s; 
+	animation-iteration-count: infinite;
+	animation-name: fontcolor;
+}
+/*애니메이션등록*/
+/*0%와 100%는 각각 from과 to로 써도됨*/
+@keyframes fontcolor{
+	0%{color : red;}
+	33%{color : blue;}
+	66%{color : green;}
+	100%{color : red;}
+}
+
+.ex{
+
+	animation-duration: 3s; 
+	animation-iteration-count: infinite;
+	animation-name: fontsize;
+	display: block; /*다음줄에오는게 영향을 받지 않게 하기 위해 display와 height를 추가 */
+	height: 100px;
+}
+@keyframes fontsize{
+	0%{font-size: 500%;}
+	50%{font-size: 100%;}
+	100%{font-size: 500%;}
+}
+.hihi{
+	animation-duration: 3s; 
+	animation-iteration-count: infinite;
+	animation-name: mix;
+	display: block;
+	height: 100px;
+	
+}
+@keyframes mix{
+	0%{
+		color : red;
+		font-size: 500%
+	}
+	33%{color : blue;}
+	50%{font-size: 100%}
+	66%{color : green;}
+	100%{
+		color : red;
+		font-size: 500%;}
+	}

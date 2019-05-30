@@ -1,0 +1,62 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.container{
+	width: 402px;
+	margin: 0 auto;/*화면의 가운데로 오게하는거 꼭 기억할것*/
+	padding: 20px;
+}
+.container h1{
+	text-align: center;
+	margin: 30px 0 10px;
+}
+.container div{
+	height: 35px;
+	line-height: 35px;  /*줄간격을 정하는거*/
+	position: relative;
+}
+.container div label{
+	display: inline-block;
+	width: 110px;
+}
+
+.container div input{
+	height: 30px;
+}
+.container div label[for=male],
+.container div label[for=female]{
+	margin: 0 0 0 15px;
+	width: 70px;
+}
+.container div input[type=text],
+.container div input[type=password],
+.container div input[type=email]{
+	width: 250px;
+	border-radius: 10px;
+	border: 1px solid aqua;
+}
+.container div input[type=radio]{
+	/*남성여성선택시 선택하는 원의 위치를 변경*/
+	position: absolute;
+	top: 3px;
+}
+.container button[type=submit]{
+	float: right;
+	margin: 10px 0 30px 0;
+	width: 50px;
+	height: 30px;
+}
+
+.container *{
+	float: left;
+}
+.container{
+	border: 1px solid black;
+}
+.container::after{
+	clear: both;
+	display: block;
+	content: "";
+}

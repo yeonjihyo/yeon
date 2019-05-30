@@ -1,0 +1,93 @@
+*{
+	margin: opx;
+	padding: opx;
+	box-sizing: border-box;
+	/*width가 컨텐츠의 가로이냐?
+	 width가 상자(컨텐츠+좌패딩+우패딩+좌보더+우보더)의 가로이냐?*/
+}
+.container{
+	min-width: 1100px; 
+}
+.container-top{
+	height: 218px;
+	border-bottom: 1px solid #d1d8e4;
+}
+.container-search{
+	height: 170px;
+}
+.container-banner{
+	height: 47px;
+	border-top: #f1f3f6 1px solid;
+}
+.container-min{
+	width: 1080px;
+	height: 100%;
+	/* border: 1px solid black; 제대로만들어졌나확인용*/
+}
+.div-center{  /*재사용성을 위해 따로 클래스를 계속 호출하게끔 만듬 */
+	margin: 0 auto; /*가운데로 오게 하는거*/
+}
+.container-bottom{
+	background-color: rgb(242,244,247);
+}
+.container-bottom-out{
+	width: 1100px;
+	padding: 8px 10px 0;/*아웃박스에 의한 패딩이 아닌 상자에 의해 공간이 나와야하기 때문에 아래에는 0으로 */
+}
+.container-bottom-in{
+	width: 100%;/*아웃에서 패딩을 줬기 때문에 100%를 했을때 1080과 같다*/
+}
+.bottom-left{
+	float: left;
+	width: 740px;
+}
+.bottom-right{
+	float: right;
+	width: 332px;
+}
+.bottom-left>div,
+.bottom-right>div{
+	background-color: white;
+}
+.container-bottom-in::after{/*float를 썻을때 부모의 after을 적용해줘야한다*/
+	clear: both;
+	display: block;
+	content: "";
+}
+.bottom-box{
+	margin-bottom: 8px;
+}
+.content-left1{
+	height: 120px;
+	background-image: url(/img/bg_timeboard_740x120.png);
+}
+.content-left2{
+	height: 46px;
+}
+.content-left3{
+	height: 246px;
+}
+.content-left4{
+	height: 884px;
+}
+.content-left5{
+	height: 130px;
+}
+.border-gray{
+	border: 1px solid #dee3eb;
+}
+.content-right1{
+	height: 120px;
+}
+.content-right2{
+	height: 142px;
+}
+.content-right3{
+	height: 150px;
+}
+.content-right4{
+	height: 884px;
+}
+.content-right5{
+	height: 130px;
+}

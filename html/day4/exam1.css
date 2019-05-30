@@ -1,0 +1,65 @@
+
+*{ /*보통 이렇게 *에 기본으로 넣어주면 편함*/
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+#leftmenu{
+	display: inline-block;
+	width: 200px;/*기본적으로 태그들(블락태그.인라인블럭)태그높이가 내용에 맞춰 자동으로 할당*/
+	float: left; /*공백을 없앨때 사용?컨텐츠의 높이가 맞지 않을때 사용? */
+}
+/*float를 이용해서 컨텐츠의 높이를 맞춰주는데 그렇게 될경우 body의 높이가 0이 될 수 있음
+그렇기때문에 아래와 같이 부모태그::after을 써서 높이를 정해주게 된다.*/
+
+/*자식중에 float를 이용한 태그가 있는데 해당 태그의 높이를 포함하여 
+부모 태그의 높이를 정하고 싶을때
+부모태그::after{
+	clear: both;
+	display: block;
+	content: "";
+}
+를 사용해 주면 된다. 그냥외울것!*/
+body::after{
+	clear: both;
+	display: block;
+	content: "";
+}
+#leftmenu ul{
+	background-color: beige;
+	border: 1px solid black;
+	border-bottom: none;
+}
+#leftmenu ul li{
+
+	text-align: center;
+	list-style: none; 
+	font-size: 20px;
+	cursor: pointer;
+	height: 40px;
+	border-bottom: 1px solid black;
+	line-height: 40px;/*글자입력할때 글자높이를 지정하는것  
+	패딩을통해글자를내리는거보다이게더좋음*/
+}
+#leftmenu ul li a{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+
+}
+ #leftmenu ul li a:hover{
+	background-color: blue;
+	color: aqua; 
+	/*본인에게 적용된 순위가 높기때문에 색이 안변함 a태그의 글씨가 블랙이라 글씨가 안바뀜
+	a태그는 인라인태그이기때문에 디스플레이를 인라인블럭으로바꾸고 가로세로를 주면된다.*/
+}
+.container{
+	display: inline-block;
+	width: calc(100% - 200px);/* 바디태그의 100% 를 의미하고 200px는 leftmenu의 width */
+	height: 100vh;
+	float: left;
+}

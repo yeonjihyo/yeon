@@ -1,0 +1,27 @@
+.container{
+	height: 100px;
+	border: 1px solid black;
+	width: 100%;
+}
+
+@media(min-width:576px){
+	.container{
+		border-color: red;
+	}
+}
+@media(min-width:768px){
+	.container{
+		border-color: blue;
+	}
+}
+@media(min-width:992px){
+	.container{
+		border-color: green;
+	}
+}
+@media(min-width:1200px){
+	.container{
+		border-color: yellow;
+	}
+}
+

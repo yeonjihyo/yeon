@@ -1,0 +1,189 @@
+*{
+	margin: opx;
+	padding: opx;
+	box-sizing: border-box;
+	/*width가 컨텐츠의 가로이냐?
+	 width가 상자(컨텐츠+좌패딩+우패딩+좌보더+우보더)의 가로이냐?*/
+}
+.container{
+	min-width: 1100px; 
+}
+.container-top{
+	height: 218px;
+	border-bottom: 1px solid #d1d8e4;
+}
+.container-search{
+	height: 170px;
+}
+.container-banner{
+	height: 47px;
+	border-top: #f1f3f6 1px solid;
+}
+.container-min{
+	width: 1080px;
+	height: 100%;
+	/* border: 1px solid black; 제대로만들어졌나확인용*/
+}
+.div-center{  /*재사용성을 위해 따로 클래스를 계속 호출하게끔 만듬 */
+	margin: 0 auto; /*가운데로 오게 하는거*/
+}
+.container-bottom{
+	background-color: rgb(242,244,247);
+}
+.container-bottom-out{
+	width: 1100px;
+	padding: 8px 10px 0;/*아웃박스에 의한 패딩이 아닌 상자에 의해 공간이 나와야하기 때문에 아래에는 0으로 */
+}
+.container-bottom-in{
+	width: 100%;/*아웃에서 패딩을 줬기 때문에 100%를 했을때 1080과 같다*/
+}
+.bottom-left{
+	float: left;
+	width: 740px;
+}
+.bottom-right{
+	float: right;
+	width: 332px;
+}
+.bottom-left>div,
+.bottom-right>div{
+	background-color: white;
+}
+.container-bottom-in::after{/*float를 썻을때 부모의 after을 적용해줘야한다*/
+	clear: both;
+	display: block;
+	content: "";
+}
+.bottom-box{
+	margin-bottom: 8px;
+}
+.content-left1{
+	height: 120px;
+	background-image: url(/img/bg_timeboard_740x120.png);
+}
+.content-left2{
+	height: 46px;
+}
+.content-left3{
+	height: 246px;
+}
+.content-left4{
+	height: 884px;
+}
+.content-left5{
+	height: 130px;
+}
+.border-gray{
+	border: 1px solid #dee3eb;
+}
+.content-right1{
+	height: 120px;
+}
+.content-right2{
+	height: 142px;
+}
+.content-right3{
+	height: 150px;
+}
+.content-right4{
+	height: 884px;
+}
+.content-right5{
+	height: 130px;
+}
+.container-search .container-min{
+	position: relative;
+}
+.logo-box{
+	position: absolute;
+	top: 50%;
+	left: -2px;
+	margin-top:-25px;
+}
+.logo{
+	display: block;
+	width: 198px;
+	height: 48px;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	background-position: -4px -4px;
+	overflow: hidden;
+}
+.search-box{
+	width: 521px;
+	height: 49px;
+	position: absolute;
+	top: 50%;
+	left: 220px; /*상속을 받았기 때문에 부모를 기준으로 left를 해야함 */
+	margin-top:-20px;
+	
+
+}
+.search-input-box{
+	width: 474px;
+	height: 49px;
+	border: 2px solid#03cf5d;
+	position: absolute;
+}
+.search-btn{
+	position: absolute;
+	right: 0px;
+	width: 49px;
+	height: 49px;
+	background:#03cf5d;
+}
+.icon-search{
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	background-position: -4px -60px;
+	top: 14px;
+	left: 14px;
+}
+.search{	
+	width: 405px;
+	height: 23px;
+	margin: 12px 0 0 9px;
+	border: none;
+	outline: none;
+	font-size:18px;
+	line-height: 23px;
+	font-weight: bold;
+	 
+}
+.v-keyboard{
+
+	position: absolute;
+	padding: 15px 6px;
+	top: 50%;
+	right: 76px;
+	margin-top: -21px;
+
+}
+.auto-search{
+	position: absolute;
+	top: 50%;
+	right: 49px;
+	margin-top: -21px;
+	padding: 19px 12px 19px 16px;
+}
+
+.icon-keyboard{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 19px;
+	height: 11px;
+	background-position: -33px -60px;
+}
+.icon-auto-down{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 9px;
+	height: 4px;
+	background-position:  -87px -60px;
+}
+.icon-auto-up{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 9px;
+	height: 4px;
+	background-position: -138px -60px;
+	display: none;
+}

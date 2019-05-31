@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="reactive.css">
+	<!-- 
+		link 순서 : 한 요소(태그나 클래스 등등)에 대해 우선순위 같을 때 덮어쓰기가
+		  				  일어나기 때문에 link 순서가 중요하다.
+		부트스트랩.css
+		폰트어썸.css
+		api.css 등등
+		내가만든 글로벌.css
+		내가만든 부분.css
+		내가만든 현재 페이지에서 쓰이는.css
+	 -->
+	<title>Document</title>
+	<style>
+	.container{
+	height: 100px;
+	border: 1px solid black;
+	width: 100%;
+	}
+	.nav{
+		height: 30px;
+		background: darkgray;
+	}
+	.nav button{
+		border: none;
+		background: none;
+		float: right;
+		height: 30px;
+		width: 30px;
+		padding: 0;
+		cursor: pointer;
+		display: block;
+	}
+
+	@media(min-width:576px){
+		.container{
+			border-color: red;
+		}
+	}
+	@media(min-width:768px){
+		.container{
+			border-color: blue;
+		}
+		.nav button{
+			display: none;
+		}
+	}
+	@media(min-width:992px){
+		.container{
+			border-color: rgb(200, 202, 200);
+		}
+	}
+	@media(min-width:1200px){
+		.container{
+			border-color: yellow;
+		}
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="nav">
+			<button><i class="fas fa-bars"></i></button>
+		</div>
+	</div>
+</body>
+</html>

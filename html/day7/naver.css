@@ -1,0 +1,734 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	/*width가 컨텐츠의 가로이냐?
+	 width가 상자(컨텐츠+좌패딩+우패딩+좌보더+우보더)의 가로이냐?*/
+}
+a{
+	text-decoration: none;
+}
+/*공통 css*/
+.txt-none{
+	text-decoration: none;
+	}
+
+.container{
+	min-width: 1100px; 
+}
+.container-top{
+	height: 218px;
+	border-bottom: 1px solid #d1d8e4;
+}
+.container-search{
+	height: 170px;
+}
+.container-min{
+	width: 1080px;
+	height: 100%;
+	/* border: 1px solid black; 제대로만들어졌나확인용*/
+}
+.div-center{  /*재사용성을 위해 따로 클래스를 계속 호출하게끔 만듬 */
+	margin: 0 auto; /*가운데로 오게 하는거*/
+}
+.container-bottom{
+	background-color: rgb(242,244,247);
+}
+.container-bottom-out{
+	width: 1100px;
+	padding: 8px 10px 0;/*아웃박스에 의한 패딩이 아닌 상자에 의해 공간이 나와야하기 때문에 아래에는 0으로 */
+}
+.container-bottom-in{
+	width: 100%;/*아웃에서 패딩을 줬기 때문에 100%를 했을때 1080과 같다*/
+}
+.bottom-left{
+	float: left;
+	width: 740px;
+}
+.bottom-right{
+	float: right;
+	width: 332px;
+}
+.bottom-left>div,
+.bottom-right>div{
+	background-color: white;
+}
+.container-bottom-in::after{/*float를 썻을때 부모의 after을 적용해줘야한다*/
+	clear: both;
+	display: block;
+	content: "";
+}
+.bottom-box{
+	margin-bottom: 8px;
+}
+.content-left1{
+	height: 120px;
+	background-image: url(/img/bg_timeboard_740x120.png);
+}
+.content-left2{
+	height: 46px;
+}
+.content-left3{
+	height: 246px;
+}
+.content-left4{
+	height: 884px;
+}
+.content-left5{
+	height: 130px;
+}
+.border-gray{
+	border: 1px solid #dee3eb;
+}
+.content-right1{
+	height: 120px;
+	position: relative;
+}
+.content-right2{
+	height: 142px;
+}
+.content-right3{
+	height: 150px;
+}
+.content-right4{
+	height: 884px;
+}
+.content-right5{
+	height: 130px;
+}
+.container-search .container-min{
+	position: relative;
+}
+.logo-box{
+	position: absolute;
+	top: 50%;
+	left: -2px;
+	margin-top:-25px;
+}
+.logo{
+	display: block;
+	width: 198px;
+	height: 48px;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	background-position: -4px -4px;
+	overflow: hidden;
+}
+.search-box{
+	width: 521px;
+	height: 49px;
+	position: absolute;
+	top: 50%;
+	left: 220px; /*상속을 받았기 때문에 부모를 기준으로 left를 해야함 */
+	margin-top:-20px;
+	
+
+}
+.search-input-box{
+	width: 474px;
+	height: 49px;
+	border: 2px solid#03cf5d;
+	position: absolute;
+}
+.search-btn{
+	position: absolute;
+	right: 0px;
+	width: 49px;
+	height: 49px;
+	background:#03cf5d;
+}
+.icon-search{
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	background-position: -4px -60px;
+	top: 14px;
+	left: 14px;
+}
+.search{	
+	width: 405px;
+	height: 23px;
+	margin: 12px 0 0 9px;
+	border: none;
+	outline: none;
+	font-size:18px;
+	line-height: 23px;
+	font-weight: bold;
+	 
+}
+.v-keyboard{
+
+	position: absolute;
+	padding: 15px 6px;
+	top: 50%;
+	right: 76px;
+	margin-top: -21px;
+
+}
+.auto-search{
+	position: absolute;
+	top: 50%;
+	right: 49px;
+	margin-top: -21px;
+	padding: 19px 12px 19px 16px;
+}
+
+.icon-keyboard{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 19px;
+	height: 11px;
+	background-position: -33px -60px;
+}
+.icon-auto-down{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 9px;
+	height: 4px;
+	background-position:  -87px -60px;
+}
+.icon-auto-up{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 9px;
+	height: 4px;
+	background-position: -138px -60px;
+	display: none;
+}
+
+/*중단메뉴관련 css*/
+.container-banner{
+	height: 47px;
+	border-top: #f1f3f6 1px solid;
+}
+.banner-green{
+	float: left;
+	padding: 16px 0 0 4px;
+
+}
+.banner-black::after,
+.banner-green::after{
+	display: block;
+	clear: both;
+	content: "";
+}
+.banner-black{
+	float: left;
+}
+.banner-black li,
+.banner-green li{
+	float: left;/* float를했기때문에 자동으로 inline-block로 바뀐다 */
+	padding-left: 14px;
+	list-style: none;
+}
+.banner-black>li:nth-child(1),
+.banner-green>li:nth-child(1){
+	padding: 0px;
+}
+.banner-img{
+	display: inline-block; 
+	height: 16px;
+	background-image: url(https://s.pstatic.net/static/www/img/2019/sp_nav.png);
+}
+.mail{
+	width: 25px;
+	background-position: 0 -285px;
+}
+.cafe{
+	width: 25px;
+	background-position: -279px -52px;
+}
+.blog{
+	width: 40px;
+	background-position: -100px -182px;
+}
+.kin{
+	width: 40px;
+	background-position: -101px -156px;
+}
+.shopping{
+	width: 25px;
+	background-position: -279px -156px;
+}
+.pay{
+	width: 25px;
+	background-position: -70px -285px;
+}
+.tv{
+	width: 32px;
+	background-position: -125px -130px;
+}
+
+.banner-black{
+	float: left;
+	padding-top: 16px;
+	padding-left: 14px;
+}
+.dic{
+	width: 26px;
+	background-position: -279px -208px;
+}
+.news{
+	width: 28px;
+	background-position: -128px -104px;
+}
+.stock{
+	width: 26px;
+	background-position: -36px -259px;
+}
+.land{
+	width: 40px;
+	background-position: -151px -156px;
+}
+.map{
+	width: 27px;
+	background-position: -279px -130px;
+}
+.movie{
+	width: 27px;
+	background-position: -234px -233px;
+}
+.music{
+	width: 26px;
+	background-position: -72px -259px;
+}
+.book{
+	width: 13px;
+	background-position: -140px -78px;
+}
+.comic{
+	width: 27px;
+	background-position: -279px 0;
+}
+.bar{
+	float: left;
+	margin: 18px 16px 0;
+	background: #ebeef3;
+	width: 1px;
+  height: 14px; 
+}
+.more{
+	float: left;
+	display: block; /*more가 a태그라 인라인이라 */
+	margin-top: 16px;
+	width: 55px;
+	height: 16px;
+	background-position: 0 -104px;
+}
+
+/*컨텐츠 오른쪽1 css*/
+.lg-container{
+	padding: 15px 25px;
+	
+}
+.lg-text{
+	color: #888;
+	font-size: 12px;
+	line-height: 14px;
+
+}
+.lg-link{
+	display: block;
+	margin-top: 12px;
+	height: 37px;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_login_v180727.png);
+	background-position: 0 -47px;
+}
+.lg-text-link{
+	position: absolute;
+	width: 280px;
+	height: 38px;
+	bottom: 0;
+	left: 25px;
+	overflow: hidden;
+	line-height: 38px;
+	font-size: 12px;
+	color: #666;
+}
+.lg-text-link>a:visited{ 
+	color: #666;
+}
+.lg-text-link>a:hover{ 
+	text-decoration: underline;
+}
+.signup{
+	float: right;
+}
+
+/*오른쪽2번째 css*/
+.r2-top{
+	padding-left: 15px;
+	height: 34px;
+	border-bottom: 1px solid #ebeef3;
+	position: relative;
+}
+.r2-top-btn{
+	display: block;
+	float: left;
+	width: 34px;
+	height: 33px;
+	border-left: 15px;
+	border-left: 1px solid #ebeef3;
+	padding: 11px 0;
+	text-align: center;
+}
+.r2-prev,
+.r2-next{
+width: 6px;
+height: 11px;
+display: inline-block;
+background-image: url(https://s.pstatic.net/static/www/img/2017/sp_timesquare_v170913a.png);
+vertical-align: top; /*수직정렬*/
+}
+.r2-prev{
+background-position: -433px -303px;
+}
+.r2-prev:hover{
+	background-position: -449px -303px;
+}
+.r2-next{
+background-position: -433px -324px;
+}
+.r2-next:hover{
+	background-position: -449px -324px;
+}
+.r2-info{
+	width: 208px;
+	padding: 9px 0 7px;
+	height: 100%;
+}
+.r2-page{
+	position: absolute;
+	top: 10px;
+	right: 78px;
+	font-size: 12px;
+	line-height: 14px;
+	color: #888;
+}
+.r2-page b{
+	color: black;
+}
+.r2-link-date,
+.r2-title{
+	font-size: 14px;
+	line-height: 17px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	position: relative;
+	top: 1px;
+	color: black;
+	vertical-align: text-top;
+	display: inline-block;
+}
+.r2-title{
+	color: #888;
+}
+.r2-bar{
+	color: #e3e7ee;
+	margin: 0 -1px 0 4px;
+	font-size: 15px;
+	line-height: 16px;
+	vertical-align: text-top;
+}
+
+/*왼쪽2번째 컨텐츠 css 시작*/
+.news-cast{
+	padding: 15px 0 0 16px;
+}
+.nc-link{
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+	margin-right: 12px;
+	color: #000;
+	letter-spacing: -1px; /*글자공백을 줄여주는거?*/
+	display:block;
+}
+.nc-icon{
+	display: inline-block;
+	margin-left: 8px;
+	width: 5px;
+	height: 9px;
+	background-position: -256px -100px;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_newscast_v180511.png);
+	vertical-align: middle;	
+}
+.nc-box{
+	float: left;
+}
+.nc-list{
+	float: right;
+}
+.nc-list>li{
+	float: left;
+	padding: 0;
+	list-style: none;
+	margin-right: 14px;
+}
+.nc-list a{
+	color: #666;
+	font-weight: bold;
+	display: block;
+	height: 15px;
+	font-size: 13px;
+	line-height: 16px;
+	letter-spacing: -1px;
+}
+a.naver-green{
+	color: #00ab33;
+}
+/*왼쪽2번째 컨텐츠 css 끝*/
+
+/*왼쪽 3번째 css 시작*/
+.l3-top{
+	border-bottom: 1px solid #ebeef3;
+	height: 45px;
+	position: relative;
+
+}
+.l3-bottom{
+	height: 199px;	
+	position: relative;
+	overflow: hidden;
+}
+.l3-row{
+	height: 67px;	
+}
+.l3-item{
+float: left;
+width: 123px;
+padding: 21px 0 22px;
+height: 67px;
+border-right: 1px solid #ebeef3;
+text-align: center;
+}
+.l3-br{
+	height: 199px;
+	width: 1px;
+	background-color: #fff;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.l3-bc{
+	width: 738px;
+	height: 1px;
+	background-color: #ebeef3;
+	position: absolute;
+}
+.c1{
+	top: 66px;
+}
+.c2{
+	bottom: 66px;
+}
+.l3-menulist{
+	height: 44px;
+	float: right;
+}
+.l3-menulist>div{
+	float: left;
+}
+
+.l3-prev,
+.l3-next{
+border-left: 1px solid #ebeef3;
+width: 44px;
+height: 44px;
+float: left;
+cursor: pointer;
+}
+.l3-prev>i,
+.l3-next>i{
+margin: 14px 0 0 18px;
+display: inline-block;
+width: 8px;
+height: 16px;
+background-image: url(https://s.pstatic.net/static/www/img/2018/sp_newscast_v180511.png);
+}
+.l3-prev>i{
+	background-position: -254px -24px;
+}
+.l3-prev>i:hover{
+	background-position: -84px -193px;
+}
+.l3-next>i{
+	background-position: -102px -193px;
+}
+.l3-next>i:hover{
+	background-position: -120px -193px;
+}
+.l3-list-item{
+	float: left;
+	margin-right: 10px;
+	width: 32px;
+	height: 44px;
+	display: block;
+}
+.l3-list-item>i{
+	display:block;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_newscast_v180511.png);
+	width: 18px;
+	height: 18px;
+	margin-top: 13px;
+}
+.l3-iltem1{
+	background-position: -200px -124px;
+}
+.l3-iltem2{
+	background-position:  0 -193px;
+}
+.l3-iltem3{
+	background-position: -28px -193px;
+}
+.l3-iltem1.active,
+.l3-iltem1:hover{
+	background-position: -158px -141px;
+}
+.l3-iltem2:hover{
+	background-position:  -200px -152px;
+}
+.l3-iltem3:hover{
+	background-position: -56px -193px;
+}
+
+.l3-rn{
+	float: left;
+	top: 0;
+	left: 0;
+	padding: 13px 0 0 16px;
+}
+.news-title{
+	display: block;
+	margin-right: 12px;
+	color: #000;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+}
+.nt-icon{
+	display: inline-block;
+	margin-left: 8px;
+	width: 5px;
+	height: 9px;
+	background-position: -256px -100px;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_newscast_v180511.png);
+	vertical-align: middle;	
+}
+.l3-rn2{
+	position: absolute;
+	top: 0;
+	left: 102px;
+	padding: 13px 0;
+	height: 44px;
+	width: 137px;
+}
+.l3-rn-total{
+	display: inline-block;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+.l3-rn-bar{
+	display: inline-block;
+	margin: 2px 15px 0;
+	width: 1px;
+	height: 15px;
+	background-color: #ebeef3;
+}
+.l3-mynews{
+	display: inline-block;
+	color: #666;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+/*왼쪽 4번째 콘텐츠 css 시작*/
+.l4-top{
+	border-bottom: 1px solid #ebeef3;
+	height: 45px;
+}
+.l4-front{
+	position: relative;
+	float: left;
+	width: 45px;
+	height: 44px;
+	border-right: 1px solid #ebeef3;
+	cursor: pointer;
+}
+.l4-ham{
+	position: absolute;
+	width: 20px;
+	height: 14px;
+	top: 15px;
+	left: 12px;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_themecast_v180607.png);
+	background-position: -218px -257px;
+}
+.l4-ham:hover{
+	background-position: -248px -257px;
+}
+.l4-middle{
+	width: 603px;
+	height: 44px;
+	float: left;
+	overflow: hidden;
+}
+.l4-titem{
+	float: left;
+	height: 44px;
+	margin-right: 10px;
+	padding: 14px 7px 0;
+	letter-spacing: -1px;
+	font-size: 14px;
+	color: #666;
+	font-weight: bold;
+	cursor: pointer;
+}
+.l4-titem:hover{
+	color: black;
+}
+.l4-titem.active{
+	border-bottom: 3px solid #00ab33;
+	color: #00ab33;
+}
+.l4-end{
+	float: right;
+}
+.l4-bottom{
+	padding: 18px 2px 3px 16px;
+}
+.l4-bottom::after{ /* float을 했을때 부모의 높이가 없으면 after를 써야함 */
+	clear: both;
+	content: "";
+	display: block;
+}
+.l4-bitem{
+	float: left;
+	margin-right: 14px;
+	margin-bottom: 19px;
+	width: 166px;
+	height: 185px;
+	list-style: none;
+	position: relative;
+	border: 1px solid black;
+}
+.l4-bitem-w2{
+	width: 346px;
+}
+.l4-bitem-h2{
+	height: 389px;
+}
+/*공통 css 우선순위떄문에 위에 있다가 아래로 내려줌*/
+.flot-right{
+	float: right;
+}
+.flot-left{
+	float: left;
+}
+
+/*왼쪽 4번째 콘텐츠 css 끝*/

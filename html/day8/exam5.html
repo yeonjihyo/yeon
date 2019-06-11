@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- 오전수업정리 -->
+	<!-- 
+	자바스크립틀르 불러오는 3가지 방법
+	1.js파일을 가져오는 방법
+	2.head태그에 script태그를 이용하는 방법
+	3.body채그에 script태그를 이용하는 방법
+	 -->
+  <!-- <script src="xxx.js"></script> -->
+	<script>
+		//코드구현
+	</script>
+	<!-- head태그에 있는 스크립트는 head코드가 구성되기 전에 실행된다. -->
+	<title>Document</title>
+</head>
+<body>
+	<!-- body태그에 있는 스크립트는 body코드가 구성된 후에 실행된다. -->
+	<script>
+		//코드구현
+		//변수에 초기값을 지정하지 않으면 자료형이 undefined이다.
+		var tmp;
+		console.log(typeof tmp);
+		console.log(typeof (tmp));
+		tmp=10.1; //실수,정수 둘다 number로 처리
+		console.log('숫자: '+typeof (tmp)); //number:정수+실수
+		tmp="안녕";//문자열: ''또는 ""
+		console.log('문자열: '+typeof (tmp)); //string
+		tmp=true;
+		console.log('boolean: '+typeof (tmp)); //boolean
+		tmp=[1,2,3,4,"5"]; //배열에 다양한 자료형의 값들을 넣을 수 있다.
+		tmp=null;
+		tmp=1/0;
+		console.log('무한대 : '+tmp);
+
+		//크기비교
+		console.log("A">"B"); //false
+		console.log("A">"a"); //false
+		console.log("AB">"B"); //false
+		console.log("AB">"A"); //true
+		console.log("123">"3"); //false
+		console.log(123>"3"); //true 한쪽이 정수면 정수로 계산
+		//NaN : Not a Number
+		console.log('abc숫자?: '+ !isNaN('abc')); //false
+		console.log('123은 유한수?: '+ isFinite(123)); //true
+
+		//
+		function sum(num1,num2){
+			return num1+num2;
+		}
+
+
+
+	</script>
+</body>
+</html>

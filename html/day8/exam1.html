@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		1.js파일을 가져오는 방법
+		2.head태그에 script태그를 이용하는 방법
+		3.body채그에 script태그를 이용하는 방법
+		*/
+		// 자바의 sysout이라고 생각 
+		// "" '' 구분없이 다문자열로 사용
+		console.log("안녕하세요");
+		console.log('안녕하세요');
+		//변수 선언시 자료형구분없이 var로 씀
+		//여러 자료형 섞어 쓸 수 있음 마지막에 쓰는 값으로 덮어씀
+		var tmp;
+		console.log(typeof tmp);
+		tmp=10;
+		console.log(typeof tmp);
+		tmp="안녕"
+		console.log(typeof tmp);
+		tmp=[1,"2",3];//자바와 달리 정수와 문자열을 섞을 수 있음
+		console.log(typeof tmp);
+		tmp=new Array(10);
+		console.log(typeof tmp);
+		tmp=10;
+		if(tmp>10){
+			console.log('tmp는 10보다 큽니다.');
+		}else{
+			console.log('tmp는 10보다 작거나 같습니다.');
+		}
+		//자바스크립트는 비교연산자 같다가 2가지
+		//값만 확인하는 경우
+		//같지않다 1 != "1" 
+		if(1=="1"){
+			console.log("문자열1과 숫자1은 값이 같습니다");
+		}else{
+			console.log("문자열1과 숫자1은 값이 다릅니다");
+		}
+		//값과 자료형을 확인하는 경우 
+		//같지않다 1 !== "1"
+		if(1==="1"){
+			console.log("문자열1과 숫자1은 값과 자료형이 같습니다");
+		}else{
+			console.log("문자열1과 숫자1은 값은 같지만 자료형은 다릅니다");
+		}
+		//문자열비교
+		console.log("문자열비교예제");
+		console.log("B">"A"); //true 알파벳순으로 크다 
+		console.log("Ba">"Ab"); //true 문자열을 하나씩 비교한다
+		console.log("AB">"ABC"); //false 
+		       //앞부분이같고 문자열의 길이가 다르면 긴쪽이 크다
+		console.log("ABCDE">"D"); //false 
+		       //하나씩 비교하기 때문에 A랑 D를 비교했을때 D가 더 커서 D가 더 큼 
+		console.log("1"<"3");  //true
+		console.log("13"<"3"); //true 
+		       //하나씩 비교하기 때문에 문자열1과 문자열3을 비교하기 때문에 문자열3이 더 크다
+		console.log("문자열로 이루어진 숫자(string)와 순수 숫자(number)예제");
+		console.log(13<"3"); //false 
+		//숫자로 바꿀 수 있으면 숫자로 바꿔서 비교하기 때문에 13이 더 크다
+		console.log(13<"3a"); //false
+		//숫자로 바꿀 수 있기 때문에 13과 3을 비교하고 a는 비교하지 않는다  
+		console.log("1"<"a");  //true 아스키코드값을 비교함
+		console.log(13<"a3"); //false 
+		// var tmp = NaN;
+		console.log(parseInt('3a'));
+
+		//parseInt함수 =>문자열을 정수로 변환해주는거
+		var num="123";
+		var iNum=parseInt(num);
+		if(isNaN(iNum)){
+			console.log(num+'은 정수로 변환이 불가능하여 100과 비교할 수 없습니다')
+		}
+		else if(100<iNum){
+			console.log(iNum+'은 100보다 큽니다');
+		}
+		//isNaN함수: 숫자가 아니면 true 숫자이면 false
+		console.log('숫자 123의 isNaN: '+isNaN(123)); 
+		//isNaN 해당하는 숫자가 숫자인지아닌지 판별할때 씀
+		console.log('문자열 a123의 isNaN: '+isNaN('a123'));
+
+		var inf=1/0; 
+		console.log(inf); //무한대는 infinity값이 저장됨
+		console.log(isFinite(inf)); //false
+		//isFinite 무한대인지아닌지확인하는 함수 
+		//isFinite(변수) : 변수가 유한수이면 true 무한대이면 false를 리턴
+		
+		num=16; //십진수 16
+		console.log(num);
+		num=0x16; //16진수 16 = 16*1+1*6=22
+		console.log(num);
+		num=016; //8진수 16 = 8*1+1*6=14
+		console.log(num);
+		num=1e6;//1*10의 6제곱 = 1000000
+		console.log(num);
+		num=1e-6; ///1*10의 -6제곱 = 0.000001
+		console.log(num);
+		//undefined와 null의 차이 
+		var tmp2;
+		console.log(typeof tmp2); //undefined는 값이 정해지지 않아 알수 없는거고 
+		var tmp3=null;
+		console.log(typeof tmp3); //null은 null이라는 비어있는 값을 넣어준거고 
+
+	</script>
+</body>
+</html>

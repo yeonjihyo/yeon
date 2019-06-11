@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 두 수의 최대 공약수를 구하는 함수를 만들고 테스트해보세요 -->
+	<!-- 함수에 자신이 없으면 우선 최대 공약수를 구하는 코드를 작성하세요 -->
+	
+	<script>
+		var num1=8;
+		var num2=12;
+
+		console.log(gcd(num1,num2));
+		function gcd(num1,num2){
+			var gcd=1;
+			for(var i=1;i<=num1;i++){
+				if(num1%i==0 && num2%i==0){
+					gcd=i;
+				}
+			}
+			return gcd;	
+		}
+		
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//콜백함수예제 이벤트가발생했을떄 기능을 동작시키는것
+		//setTimeout 일정시간이 지난뒤에 이벤트를 발생시킴
+		var count=1;
+		function sayHello(){
+			console.log("Hello world : "+ count);
+			count++;
+			setTimeout(sayHello, 1000);
+		}
+		function sayHi(){
+			console.log("Hi");
+			setTimeout(sayHi, 900);
+		}
+		setTimeout(sayHello, 1000);//시간이지나면(1초지나면) sayHello를 호출하라는 뜻 
+		//count++;
+		setTimeout(sayHi, 900);
+	</script>
+</body>
+</html>

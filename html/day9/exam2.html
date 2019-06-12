@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="text" value="123">
+	<button onclick="message()">버튼</button>
+	<script>
+	function message(){
+		var text=document.getElementById('text');
+		alert(text.value);
+		text.value='';//경고창이 뜬뒤 정보를 없애주려고 공백을 줌 
+	}
+	
+	</script>
+</body>
+</html>

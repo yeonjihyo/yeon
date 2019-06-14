@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="pwExam.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	비밀번호 <input type="text" id="pw3" placeholder="비밀번호는 8~13자리" onchange="checkPw(this.value,8,13);">
+	<div id="errorpw3"></div>
+	비밀번호확인 <input type="text" id="pw4">
+	<div id="errorpw4"></div>
+	<button onclick="checkPwConfirm('pw3','pw4',8,13);">확인</button> <!-- onclick:클릭했을때 이벤트를 실행 -->
+	<!-- <button onclick="checkPwConfirm('pw3','pw4',8,13)">확인</button> -->
+	<script>
+		window.onload=function(){	}//페이지가 불리자마자 실행되야하는 경우에 씀 
+		
+	</script>
+</body>
+</html>

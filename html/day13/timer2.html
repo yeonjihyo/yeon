@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.time-led{
+			width: 100px;
+			height: 50px;
+			border: 1px solid black;
+			margin-top: 5px;
+		}
+		.button{
+			display: inline-block;
+			margin-top: 5px;
+			height: 30px;
+			width: 60px;
+			font-size: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="time-led timer">00:00:00:00</div>
+	<button class="button motion" onclick="runAndStop()">시작/기록</button>
+	<button class="button reset" onclick="reset()">리셋</button>
+	<div class="time-led record">00:00:00:00</div>
+	<div class="time-led record">00:00:00:00</div>
+	<div class="time-led record">00:00:00:00</div>
+	<script>
+		//전역변수: 함수외부에서 선언된 변수,프로그램 전체에서 접근가능 
+		var isRunning=false; 
+		var mm=0; 
+		var ss=0; 
+		var MM=0; 
+		var hh=0; 
+		var id;//setInterval()을 통해 할당된 값을 저장
+		var checkCount=0; //기록을 몇번 했는지
+		function runAndStop(){
+			//start를 해야하는 상황(이전에 멈춰있다가 지금 버튼을 눌러서 동작해야 하는 상황)이면
+			if(!isRunning){
+				id=setInterval(timer, 10);
+				isRunning=true;
+			}else{
+				//2번째 버튼을 눌렀을 경우 멈추지 않도록 처리 
+				
+				//1. 정지기능제거
+				//isRunning=false; timer()를 중단시키는거, 시간찍는것을막는코드이기때문에 주석처리
+				//clearInterval(id);  timer동작자체를 막는코드이기때문에 주석처리
+
+				//출력된 시간을 하나씩 미는 작업
+				updateRecord();
+				
+				//2. 시간을 기록하는 작업 추가 
+				if(checkCount<2)
+					writeTime(document.getElementsByClassName('record')[checkCount]);
+				else
+					writeTime(document.getElementsByClassName('record')[2]);
+				checkCount++;
+			}
+		}
+
+		function reset(){
+			mm=0;
+			ss=0; 
+			MM=0; 
+			hh=0; 
+			writeTime(document.getElementsByClassName('timer')[0]);
+			isRunning=false;
+			checkCount=0;
+		}
+
+		function timer(){
+			if(isRunning){
+				mm++;
+				writeTime(document.getElementsByClassName('timer')[0]);
+			} 
+		}
+
+		function getTime(){
+			if(mm>=100){
+				mm-=100; //100이 되면 0으로 만들어 주고 ss증가 
+				ss++;
+			} 
+			if(ss>=60){
+				ss-=60; 
+				MM++
+			} 
+			if(MM>=60){
+				MM-=60; 
+				hh++;
+			}
+			return ''+getStr(hh)+':'+getStr(MM)+':'+getStr(ss)+':'+getStr(mm);
+		}
+
+		function getStr(num){
+			if(num<10) return '0'+num;
+			else return num;
+		}
+		function writeTime(obj){
+			obj.innerHTML=getTime();
+		}
+
+		function updateRecord(){
+			if(checkCount<3) return;
+
+			var recordArr=document.getElementsByClassName('record');
+			for(var i=0;i<recordArr.length-1;i++){
+				recordArr[i].innerHTML=recordArr[i+1].innerHTML;
+			}
+		}
+		
+	</script>
+</body>
+</html>

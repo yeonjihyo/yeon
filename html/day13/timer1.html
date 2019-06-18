@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.time-led{
+			width: 100px;
+			height: 50px;
+			border: 1px solid black;
+		}
+		.button{
+			display: inline-block;
+		
+			height: 30px;
+			width: 60px;
+			font-size: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="time-led">00:00:00:00</div>
+	<button class="button motion" onclick="runAndStop()">시작/스톱</button>
+	<button class="button reset" onclick="reset()">리셋</button>
+	<script>
+		var isRunning=false; //전역변수: 함수외부에서 선언된 변수,프로그램 전체에서 접근가능
+		var mm=0; //ms:밀리초
+		var ss=0; //s: 초
+		var MM=0; //m: 분
+		var hh=0; //h: 시
+		var id;//setInterval()을 통해 할당된 값을 저장
+
+		function runAndStop(){
+			//start를 해야하는 상황(이전에 멈춰있다가 지금 버튼을 눌러서 동작해야 하는 상황)이면
+			if(!isRunning){
+				// document.getElementsByClassName('time-led')[0].innerHTML
+				// =1;
+				id=setInterval(timer, 10);
+				isRunning=true;
+			}else{
+				// document.getElementsByClassName('time-led')[0].innerHTML
+				// =0;
+				isRunning=false; //동작은 하지만 시간 찍는것을 막는 코드
+				clearInterval(id); //중단시키는거 timer동작자체를 중단
+			}
+		}
+
+		function reset(){
+			document.getElementsByClassName('time-led')[0].innerHTML
+			='00:00:00:00';
+			isRunning=false;
+			mm=0; //ms:밀리초
+			ss=0; //s: 초
+			MM=0; //m: 분
+			hh=0; //h: 시
+		}
+
+		function timer(){
+			if(isRunning){
+				//
+				var strCount = '00:00:00:00';
+				mm++;
+				strCount = getTime(); //전역변수들을위한시간????????
+				document.getElementsByClassName('time-led')[0].innerHTML
+				=strCount;
+				//++count;//0을먼저찍기떄문에 1초가늦어져서 전위형을써야함
+				//setTimeout(timer, 1000);//()를할경우 재귀함수가 되기 때문에 빼야함
+				//1초마다 하는게 아니고 (주기적으로 반복하는게 아니고 한번(일정시간 반복??)하고 끝나는거임) 그렇게 보이게 해주는거임 
+				//그렇기때문에 주기적으로 반복 할수 있는 setInterval을 이용 
+
+			} 
+		}
+		function getTime(){
+			if(mm>=100){
+				mm-=100; //100이 되면 0으로 만들어 주고 ss증가 
+				ss++
+			} 
+			if(ss>=60){
+				ss=60; 
+				MM++
+			} 
+			if(MM>=60){
+				MM=60; 
+				hh++
+			}
+
+			return ''+getStr(hh)+':'+getStr(MM)+':'+getStr(ss)+':'+getStr(mm);
+		}
+		function getStr(num){
+			if(num<10) return '0'+num;
+			else return num;
+		}
+	</script>
+</body>
+</html>

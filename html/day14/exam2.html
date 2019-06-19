@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" onchange="change1()" value="" id="test" placeholder="내용을 입력하세요">
+	<input type="text" onchange="change2(this.value)" placeholder="내용을 입력하세요">
+	<input type="text" onchange="change3(this)" placeholder="내용을 입력하세요">
+	<input type="text" onchange="change4(this.value)" placeholder="내용을 입력하세요">
+	<script>
+
+		function change1(){
+			alert('내용이 '+document.getElementById('test').value+'으로 변경됐습니다.');
+		}
+		function change2(text){
+			alert('내용이 '+text+'으로 변경됐습니다.');
+		}
+		function change3(obj){
+			alert('내용이 '+obj.value+'으로 변경됐습니다.');
+		}
+		var oldText=''; //값을 유지하고 싶을때 함수 밖에 전역변수를 선언한다.
+
+		//입력창 내용이 변경되면 (onChange)
+		//이전값과 지금값을 메세지 창으로 출력후 (alert)
+		//지금값을 이전값으로 변경
+		function change4(newText){
+			alert('내용이 ['+oldText+']에서 ['+ newText +']으로 변경됐습니다.');
+			oldText = newText;
+		}
+	</script>
+</body>
+</html>

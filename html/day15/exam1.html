@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script> src="https://code.jquery.com/jquery-3.4.1.js"</script>
+	<script>
+		//jquery
+
+
+		/*
+		$().함수명();
+		$().함수명(function(){
+
+		});
+		*/
+
+
+		//클래스선택자 : .클래스
+		//아이디 선택자 : #아이디
+		//태그 선택자 :태그명
+		//자식관계 :선택자1>선택자2
+		//자손관계 :선택자1 선택자2
+		//자기자신 :선택자1선택자2
+		// 					태그선택자 2개가 같이 올 수 없다.
+		//					=>한 개체가 2개의 태그에 동시에 포함될 수 없기 때문
+		// 					divp(x), divdiv(x),div.logodiv(x)
+		// 					아이디도 2개가 같이 올 수 없다.
+		//					=>한 태그가 id를 2개이상 사질 수 없기 때문에
+		//					#logo#naver(x), #logo.logo#naver(x)
+		//$('선택자'); //기본
+
+
+			//=>window.onload와 비슷한 역할!
+		//차이는 $(document).ready()는 여러개 나와도 각각 실행됨
+		//(window.onload는 1개만 적용되지만 아래 코드는 여러개 가능)
+		$(document).ready(function(){
+			//input태그의 요소가 내용이 변경되면 실행
+			$('input').change(function(){
+			//내용이 변경된 요소(this)의 value를 콘솔에 출력
+			//console.log(this.value);
+			console.log('안녕하세요.');
+			}); //체인지이벤트가발생하면 이런동작을하라고 하는거?
+
+			//$('input').change(); //체인지이벤트를 동작시켜라
+
+			var tmp=$('input').val();//getter라고 생각,값을가져옴
+			console.log(tmp);
+			$('input[type=text]').val()('12345678');//setter라고 생각,값을설정함
+			$('input').addClass('hello');
+
+		});
+
+	
+
+	
+		
+		// document.getElementById();
+		// +document.getElementsByClassName();
+		// +document.getElementsByTagName();
+	</script>
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" value="123">
+	<input type="text" value="">
+	<input type="text" value="">
+	<input type="text" value="">
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<title>Document</title>
+	<style>
+		div{
+			border: 1px solid black;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+		}
+		.gray{
+			background-color: gray;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+		// 	$('div').mouseenter(function(){
+		// 		$(this).siblings().addClass('gray');
+		// 	});
+		// 	$('div').mouseout(function(){
+		// 		$(this).siblings().removeClass('gray');
+		// 	});
+			$('div').hover(function(){
+				$(this).siblings().toggleClass('gray');
+			});
+		});
+		
+	</script>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="../js/add3.js"></script>
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.container{
+			width: 800px;
+			margin: 20px auto;
+		}
+		.box::after{
+			content: "";
+			clear: both;
+			display: block;
+			position: relative;
+		
+
+		}
+		.contents{
+			border: 1px solid black;
+			width: calc(100%/3);
+			height: 100px;
+			float: left;
+		}
+		.more{
+			margin-top: 30px;
+			width: 100%;
+			height: 50px;
+			line-height: 48px;
+		}
+	</style>
+	<script>
+		
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<div class="contents"></div>
+			<div class="contents"></div>
+			<div class="contents"></div>
+			<div class="contents"></div>
+			<div class="contents"></div>
+			<div class="contents"></div>
+			<div class="contents"></div>
+			<div class="contents"></div>
+			<div class="contents"></div>
+		</div>
+		<button class="more">더보기</button>
+	</div>
+</body>
+</html>

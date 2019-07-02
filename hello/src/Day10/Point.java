@@ -36,5 +36,8 @@ public class Point {
 	public Point(Point p){
 		move(p);
 	}
-
+	@Override
+	public String toString() {
+		return "("+x+","+y+")";
+	}
 }

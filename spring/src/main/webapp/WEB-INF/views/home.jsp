@@ -5,26 +5,7 @@
 <head>
 	<title>Home</title>
 </head>
-<body>
-<h1>
-	Hello world!  
-</h1> 
-
-<P>  The time on the server is ${serverTime}.${name} </P>
-<form method="get" action="<%=request.getContextPath()%>/"> <!-- /spring/과 같음 -->
-	<input name="id" value="${name}">
-</form>
-<form method="get" action="<%=request.getContextPath()%>/"> 
-	<input name="num1" value="${a}">+
-	<input name="num2" value="${b}">=
-	<input name="res" value="${c}" readonly>
-	<br>
-	<button>계산</button>
-</form>
-<form method="get" action="<%=request.getContextPath()%>/">
- <input name="number" value="${cnt}">
- <button>증가</button>
- 
-</form>
+<body><!--request의 메소드인  getContextPath()를 사용하겠다?-->
+<a href="<%=request.getContextPath()%>/signup">회원가입</a>
 </body>
 </html>

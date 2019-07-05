@@ -35,7 +35,7 @@ public class HomeController {
 		//사용자에게 home.jsp를 보내준다.
 		return "home";
 	}
-	
+	//회원가입
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signupGet(Model model) {
 		logger.info("회원가입페이지 실행");
@@ -54,7 +54,38 @@ public class HomeController {
 		//redirect:/ POST에서 작업을 하고 signup이라는 URI를 GET방식으로 가라 
 		return "redirect:/signup";
 	}
-	
-
-	
+	//로그인
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)
+	public String signinGet(Model model) {
+		logger.info("로그인 페이지 실행");
+		
+		return "signin";
+	}
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)
+	public String signinPost(MemberVO mVo) {
+		logger.info("로그인 페이지 진행중");
+		System.out.println(mVo);
+		//서비스에게 회원여부를 확인해서 회원이맞으면 메인페이지로 아니면 singin페이지로 
+		if(memberService.signin(mVo)) {
+			return "redirect:/";
+		}
+		return "redirect:/signin";
+	}
+	//회원정보수정
+	@RequestMapping(value = "/member/modify", method = RequestMethod.GET)
+	public String MemberModifyGet() {
+		logger.info("회원정보수정 페이지 실행");
+		
+		return "/member/modify";
+	}
+	@RequestMapping(value = "/member/modify", method = RequestMethod.POST)
+	public String MemberModifyPost(MemberVO mVo,String oldPw) {
+		logger.info("회원정보수정 진행중");
+//		System.out.println(mVo);
+//		System.out.println(oldPw);//콘솔에 찍어서 확인 
+		if(memberService.modify(mVo,oldPw)) {
+			return "redirect:/";
+		}
+		return "redirect:/member/modify";
+	}
 }

@@ -1,0 +1,20 @@
+greenmaster 사용자를 추가하고 green db에 모든 권한을 부여
+비번은 cjgreen
+
+mysql> use mysql
+mysql> create user 'greenmaster'@localhost identified by 'cjgreen';
+mysql> select user,host from user;
+mysql> grant all on green.* to 'greenmaster'@'localhost';
+
+mysql> show grants for 'greenmaster'@'localhost';
+
+
+green사용자를 추가하고 green db에서 데이터를 관리할 수 있는 권한을 부여 
+비번은 cjgreen
+
+mysql> create user 'green'@localhost identified by 'cjgreen';
+mysql> select user,host from user;
+mysql> grant select,insert,update,delete on green.* to 'green'@'localhost';
+mysql> show grants for 'green'@'localhost';
+
+

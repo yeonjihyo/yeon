@@ -1,0 +1,79 @@
+green데이터베이스생성
+subject 테이블 생성
+-no int
+-title varchar(20)
+-time int
+
+mysql> create database green;
+mysql> show databases;
+mysql> use green;
+mysql> create table green(
+    -> no int,
+    -> title varchar(20),
+    -> time int
+    -> );
+show tables;
+mysql> explain green;
+mysql> insert into green (no,title,time) values (1,"컴퓨터",3);
+mysql> select * from green;
+
+
+
+student테이블생성
+no int
+name vatchar(11)
+age int
+
+subject 테이블 기본키지정
+no를 기본키로 지정
+
+ create table student(
+    -> no int,
+    -> name varchar(11),
+    -> age int
+    -> );
+mysql> show tables;
+mysql> alter table green
+    ->  add constraint green_pk primary key (no);
+mysql> explain green;
+
+
+
+student 테이블 기본키 지정
+-no를 기본키로 지정
+class 테이블 생성
+-no int
+subject_no int
+teacher varchar(11)
+start_date datetime
+end_date datetime
+
+
+mysql> alter table student
+    -> add constraint student_pk primary key (no);
+mysql> explain student;
+mysql> create table class(
+    -> no int,
+    -> subject_no int,
+    -> teacher varchar(11)
+    -> ,
+    -> start_date datetime,
+    -> end_date datetime
+    -> );
+mysql> show tables;
+mysql> explain class;
+
+
+
+
+class 테이블의 기본키와 외래키 설정
+-no를 기본키로
+-class테이블의 sudject_no를 외래키로 지정하고 
+subject테이블의 no와 연결
+
+mysql>  alter table class
+    ->   add constraint class_pk primary key (no);
+mysql> explain class;
+mysql> alter table class
+    -> add constraint class_fk foreign key(subject_no) references subject(no);
+mysql> explain class;

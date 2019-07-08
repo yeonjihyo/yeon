@@ -26,6 +26,7 @@
 		color: red;
 	}
 	</style>
+	
 </head>
 <body>
 	<div>

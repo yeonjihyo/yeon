@@ -1,0 +1,24 @@
+﻿servlet-context에서 URI를 확인하고 interceptor실행
+
+1.
+/에서 아이디와 	비밀번호를 입력하여 /signin 로그인  시도(회원이라는전제하에)
+=>UnauthInterceptor 실행(preHandle)=> /signin 있는 컨트롤러가 실행되고 /로 가라고함
+=>LoginInterceptor실행(세션에 user정보 저장 )(postHandle이니까 컨트롤러에 갔다가 실행)
+=>/로 가야하는데 UnauthInterceptor의 preHandle이 실행되고 이전과 달리 세션에 user정보가 있기 때문에
+    RequestMapping이 /컨트롤러로 가지 않고 /board/list로 가야함 
+=>AuthInterceptor의 preHandle이 실행되고 아무일도 안일어남
+=>RequestMapping이/board/list인 컨트롤러의 메소드가 실행
+=>list.jsp가 화면에 출력 
+
+
+2.노트에그림있음 
+로그인을 하지 않고 URI에 /board/list를 입력하고 엔터를 쳤을 때 실행순서를 작성하세요 
+
+Auth-=>메인페이지(/)로이동=>Unauth-실행=>컨트롤러에 /로이동=>jsp실행
+
+Auth의 sendRedirect는
+기존 URI을 무시하고 주어진 URI로 되는거와 같은 의미이기 때문에 
+해당 URI을 치고 엔터를 누른거와 같은 효과 
+ 
+sendRedirect 때문에 엔터 누른거와 같이 돼서 /board/list가 spring/이 되는거와같은 효과가 돼서
+servlet-context에 메인페이지(/)경로가발생되면 실행되는 Unauth-가 실행되는거임 

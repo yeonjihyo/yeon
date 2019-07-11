@@ -29,6 +29,20 @@ public class BoardServiceImp implements BoardService {
 		return boardDao.getBoard(num);
 	}
 
+	@Override
+	public void updateViews(Integer num) {
+		// TODO Auto-generated method stub
+		//첫번째 방법:
+		//boardDao.updateViews(num);
+		//두번째방법 :
+		BoardVO tmp = boardDao.getBoard(num);
+		if(tmp != null) {
+			int oldViews = tmp.getViews();//현재조회소를 올드뷰에 저장
+			tmp.setViews(oldViews+1);
+			boardDao.updateBoard(tmp);
+		}
+	}
+
 	
 
 	

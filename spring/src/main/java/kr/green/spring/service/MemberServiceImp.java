@@ -40,20 +40,34 @@ public class MemberServiceImp implements MemberService{
 		return true;
 	}
 
+//	@Override
+//	public boolean signin(MemberVO mVo) {
+//		if(mVo ==null) {//예외처리 //입력된정보가 없으면 
+//			return false;
+//		}
+//		//dao에게 id와 일치하는 회원 정보를 가져오게 시켜서 oVo에 저장
+//		MemberVO oVo=memberDao.getMember(mVo.getId());
+//		if(oVo ==null) {//저장된 회원정보가 없으면 
+//			return false;//회원이 아니라고 알려줌
+//		}
+//		if(oVo.getPw().equals(mVo.getPw())) {//가져온 회원정보의 비밀번호와 입력한 회원정보의 비밀번호를 equals를 통해 비교
+//			return true;//같으면 회원이라고 알려줌
+//		}
+//		return false;
+//	}
 	@Override
-	public boolean signin(MemberVO mVo) {
+	public MemberVO signin(MemberVO mVo) {
 		if(mVo ==null) {//예외처리 //입력된정보가 없으면 
-			return false;
+			return null;
 		}
-		//dao에게 id와 일치하는 회원 정보를 가져오게 시켜서 oVo에 저장
 		MemberVO oVo=memberDao.getMember(mVo.getId());
-		if(oVo ==null) {//저장된 회원정보가 없으면 
-			return false;//회원이 아니라고 알려줌
+		if(oVo ==null) { 
+			return null;
 		}
-		if(oVo.getPw().equals(mVo.getPw())) {//가져온 회원정보의 비밀번호와 입력한 회원정보의 비밀번호를 equals를 통해 비교
-			return true;//같으면 회원이라고 알려줌
+		if(oVo.getPw().equals(mVo.getPw())) {
+			return oVo;
 		}
-		return false;
+		return null;
 	}
 
 	@Override

@@ -31,6 +31,8 @@ public class BoardController {
 	}
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public String boardDisplayGet(Model model,Integer num) {
+		//조회수 증가 bvo앞에 쓰는 이유는 먼저 조회수를 올리고 게시글을 가져오려고 
+		boardService.updateViews(num);
 		BoardVO bVo =boardService.getBoard(num);
 		model.addAttribute("board", bVo);
 		return "/board/display";

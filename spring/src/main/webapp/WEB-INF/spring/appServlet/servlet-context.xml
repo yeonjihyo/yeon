@@ -23,6 +23,38 @@
 	
 	<context:component-scan base-package="kr.green.spring" />
 	
+	<!-- LoginInterceptor를 setvlet-context.xml에 interceptor로 등록 -->
+	<!-- kr.green.spring.interceptor.LoginInterceptor클래스를 bean에 등록 -->
+	<beans:bean id="loginInterceptor" 
+	class="kr.green.spring.interceptor.LoginInterceptor"></beans:bean>
+	
+	<!-- kr.green.spring.interceptor.AuthInterceptor를 authInterceptor로 bean에 추가 -->
+	<!-- servlet-context.xml에 AuthInterceptor 추가 -->
+	<beans:bean id="authInterceptor" 
+	class="kr.green.spring.interceptor.AuthInterceptor"></beans:bean>
+	
+	<beans:bean id="unauthInterceptor" 
+	class="kr.green.spring.interceptor.UnauthInterceptor"></beans:bean>
+	
+	
+	<interceptors>
+		<!-- 로그인 path가 주어졌을때  loginInterceptor가 호출되도록 interceptor태그에 등록-->
+	    <interceptor>
+	        <mapping path="/signin"/>
+	        <beans:ref bean="loginInterceptor"/>
+	    </interceptor>
+	    <!--로그인 후 접근해야 하는 경로(URI) 가 주어졌을 때 authInterceptor가 호출하도록 interceptor태그에 등록  -->
+	    <interceptor>
+	        <mapping path="/board/*"/>
+	        <beans:ref bean="authInterceptor"/>
+		</interceptor>
+		<interceptor> <!-- <mapping path="">의 경로가 발생되면 unauthInterceptor를 해라  -->
+	        <mapping path="/signin"/>
+	        <mapping path="/signup"/>
+	        <mapping path="/"/>
+	        <beans:ref bean="unauthInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 	
 </beans:beans>

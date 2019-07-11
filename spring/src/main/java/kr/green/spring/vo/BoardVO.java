@@ -11,6 +11,7 @@ public class BoardVO {
 	private Date registered;
 	private String file;
 	private int views;
+	
 	public int getNum() {
 		return num;
 	}

@@ -2,6 +2,8 @@ package kr.green.spring.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +38,22 @@ public class BoardController {
 		BoardVO bVo =boardService.getBoard(num);
 		model.addAttribute("board", bVo);
 		return "/board/display";
-		
 	}
+	@RequestMapping (value= "/modify", method=RequestMethod.GET)
+	public String boardModifyGet(Model model,Integer num) {
+		
+		BoardVO bVo =boardService.getBoard(num);
+		
+		model.addAttribute("board", bVo);
+		return "board/modify";
+	}
+	@RequestMapping (value= "/modify", method=RequestMethod.POST)//수정된내용을 전송해야하니까 post가 필요
 	
+	//HttpServletRequest : 요청된 정보가 들어있는거 
+	public String boardModifyPost(Model model,BoardVO bVo, HttpServletRequest r) {
+		//System.out.println(bVo);
+		boardService.updateBoard(bVo,r);//로그인한 사람이 작성자인지 아닌지 확인하기 위해 r을 넣어줌
+		model.addAttribute("num", bVo.getNum());
+		return "redirect:/board/display";
+	}
 }

@@ -2,11 +2,14 @@ package kr.green.spring.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.green.spring.dao.BoardDAO;
 import kr.green.spring.vo.BoardVO;
+import kr.green.spring.vo.MemberVO;
 
 @Service
 public class BoardServiceImp implements BoardService {
@@ -22,7 +25,6 @@ public class BoardServiceImp implements BoardService {
 
 	@Override
 	public BoardVO getBoard(Integer num) {
-		// TODO Auto-generated method stub
 		if(num == null) {
 			return null;
 		}//예외처리  기본키가 번호이기때문에 
@@ -43,8 +45,13 @@ public class BoardServiceImp implements BoardService {
 		}
 	}
 
-	
-
-	
+	@Override
+	public void updateBoard(BoardVO bVo, HttpServletRequest r) {
+		MemberVO user =(MemberVO)r.getSession().getAttribute("user");
+		if(user == null || bVo == null) return ;
+		if(bVo.getWriter() != null && bVo.getWriter().equals(user.getId())) {//
+			boardDao.updateBoard(bVo);
+		}
+	}	
 
 }

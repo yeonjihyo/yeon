@@ -12,12 +12,13 @@
 </script>
 <body><!-- 괄호안은 속성명임 -->
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
+	<form action="<%=request.getContextPath()%>/board/modify" method="post">
+	<input type="hidden" name="num" value="${board.num}">
 	<div class="container-fluid" style="margin-top: 80px;">
 		<div class="form-group">
 		  <label>제목</label>
-		  <input type="text" class="form-control" name="title" value="${board.title}" readonly>
+		  <input type="text" class="form-control" name="title" value="${board.title}" >
 		</div>
-		
 		<div class="form-group">
 		  <label>작성자</label>
 		  <input type="text" class="form-control" name="writer" value="${board.writer}" readonly>
@@ -32,28 +33,18 @@
 		</div>
 		<div class="form-group">
 		  <label>내용</label>
-		  <textarea rows="10" class="form-control" name="contents" readonly>${board.contents}</textarea>
+		  <textarea rows="10" class="form-control" name="contents" >${board.contents}</textarea>
 		</div>
 		<div class="form-group">
 		  <label>첨부파일</label>
-		  <input type="text" class="form-control" name="file" value="${board.file}" readonly>
+		  <input type="text" class="form-control" name="file" value="${board.file}" >
 		</div>
 		<a href="<%=request.getContextPath()%>/board/list">
 			<button type="button" class="btn btn-outline-danger">목록</button>
 		</a>
-		<c:if test="${user.id eq board.writer}">
-			<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}">
-				<button type="button" class="btn btn-outline-danger">수정</button>
-			</a>
-		</c:if>
-		
-		<a href="<%=request.getContextPath()%>/board/display">
-			<button type="button" class="btn btn-outline-danger">등록</button>
-		</a>
-		<a href="<%=request.getContextPath()%>/board/list">
-			<button type="button" class="btn btn-outline-danger">삭제</button>
-		</a>
+		<button type="submit" class="btn btn-outline-danger">수정하기</button>
 	</div>
+	</form>
 	
 </body>
 </html>

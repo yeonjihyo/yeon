@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- 공통으로 들어가는 jsp를 따로 관리할때 불러오는 코드 -->
+<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
 </head>
 <body>
-	<h1>게시판</h1>
+	<h1 style="margin-top: 80px;">게시판</h1>
 	<table class="table">
 		<tr>
 			<th width="5%">번호</th>

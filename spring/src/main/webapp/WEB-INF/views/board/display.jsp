@@ -41,18 +41,19 @@
 		<a href="<%=request.getContextPath()%>/board/list">
 			<button type="button" class="btn btn-outline-danger">목록</button>
 		</a>
+		<a href="<%=request.getContextPath()%>/board/register">
+			<button type="button" class="btn btn-outline-danger">등록</button>
+		</a>
 		<c:if test="${user.id eq board.writer}">
 			<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}">
 				<button type="button" class="btn btn-outline-danger">수정</button>
 			</a>
 		</c:if>
-		
-		<a href="<%=request.getContextPath()%>/board/display">
-			<button type="button" class="btn btn-outline-danger">등록</button>
-		</a>
-		<a href="<%=request.getContextPath()%>/board/list">
-			<button type="button" class="btn btn-outline-danger">삭제</button>
-		</a>
+		<c:if test="${user.id eq board.writer}">
+			<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}">
+				<button type="button" class="btn btn-outline-danger">삭제</button>
+			</a>
+		</c:if>
 	</div>
 	
 </body>

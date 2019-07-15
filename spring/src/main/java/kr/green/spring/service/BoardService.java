@@ -16,6 +16,15 @@ public interface BoardService {
 
 	void updateBoard(BoardVO bVo, HttpServletRequest r);
 
+	void registerBoard(BoardVO boardVo);
+
+	void deleteBoard(Integer num);
+
+	boolean isWriter(Integer num, HttpServletRequest r);
+
+
+
+
 	
 
 }

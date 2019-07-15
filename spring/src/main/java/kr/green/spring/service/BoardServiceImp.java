@@ -52,6 +52,35 @@ public class BoardServiceImp implements BoardService {
 		if(bVo.getWriter() != null && bVo.getWriter().equals(user.getId())) {//
 			boardDao.updateBoard(bVo);
 		}
-	}	
+	}
+
+	@Override
+	public void registerBoard(BoardVO boardVo) {
+		boardDao.registerBoard(boardVo);
+		
+	}
+
+	@Override
+	public void deleteBoard(Integer num) {
+		if(num == null || num<=0) {
+			return;
+		}
+		boardDao.deleteBoard(num);
+		
+	}
+
+	@Override
+	public boolean isWriter(Integer num, HttpServletRequest r) {
+		 BoardVO board=boardDao.getBoard(num);//게시판번호가져옴
+		 MemberVO user =(MemberVO)r.getSession().getAttribute("user");//유저정보가져옴
+		 if(board != null && user != null && board.getWriter().equals(user.getId())) {
+			 //작성자와 아이디 모두 낫널이 체크되 있으니까 널이아니라는거는 정보가있는거고 널이면 빈문자열이 있는거니까 이퀄스를 통해 비교
+			 return true;
+		 }
+		 return false;
+	}
+
+	
+
 
 }

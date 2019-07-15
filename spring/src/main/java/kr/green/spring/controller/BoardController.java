@@ -47,8 +47,8 @@ public class BoardController {
 		if(!boardService.isWriter(num,r)) {//작성자가아니면 리스트로가라 
 			return "redirect:/board/list";
 		}
-		//BoardVO bVo =boardService.getBoard(num);
-		model.addAttribute("board", num);
+		BoardVO bVo =boardService.getBoard(num);
+		model.addAttribute("board", bVo);
 		return "board/modify";
 	}
 	@RequestMapping (value= "/modify", method=RequestMethod.POST)//수정된내용을 전송해야하니까 post가 필요

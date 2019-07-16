@@ -67,14 +67,14 @@ public class BoardController {
 		return "board/register";
 	}
 	@RequestMapping (value= "/register", method=RequestMethod.POST)
-	public String boardRegisterPost(Model model,BoardVO boardVo, HttpServletRequest r) {
+	public String boardRegisterPost(Model model,BoardVO boardVo) {
 		System.out.println(boardVo);//게시판정보가잘들어오는지확인//게시판들어가서 등록마쳤을떄 정보가 떠야함 
 		boardService.registerBoard(boardVo);
 		return "redirect:/board/list";
 	}
 	//게시글삭제
 	@RequestMapping (value= "/delete", method=RequestMethod.GET)
-	public String boardDisplayDeleteGet(Model model,Integer num, HttpServletRequest r) {
+	public String boardDisplayDeleteGet(Model model,Integer num, HttpServletRequest r) {// r: 작성자정보가져오기위해 세션에 접근
 		if(boardService.isWriter(num,r)) {//작성자면 삭제해라 
 			boardService.deleteBoard(num);
 		}

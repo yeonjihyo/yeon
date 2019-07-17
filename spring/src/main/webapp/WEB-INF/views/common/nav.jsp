@@ -6,13 +6,13 @@
 	  <a class="navbar-brand" href="#">Logo</a>
 	  <ul class="navbar-nav">
 	    <li class="nav-item">
-	      <a class="nav-link" href="#">Link</a>
+	      <a class="nav-link" href="https://github.com/" target="_blank">github</a><!--_blank: 새탭으로 열어줌 -->
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="#">Link</a>
 	    </li>
 	    <li class="nav-item"style=" right:20px; position:absolute;">
-	      <a class="nav-link" href="<%=request.getContextPath()%>/signout">Signout</a>
+	      <a class="nav-link" href="<%=request.getContextPath()%>/signout">로그아웃</a>
 	    </li>
 	  </ul>
 	</nav>

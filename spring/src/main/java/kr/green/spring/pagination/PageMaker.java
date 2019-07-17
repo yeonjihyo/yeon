@@ -22,7 +22,7 @@ public class PageMaker {
 		//startPage =31
 		
 		/* 총 콘텐츠 갯수를 이용하여 마지막 페이지 번호를 계산 */
-		//perPageNim=15 
+		//perPageNum=15 
 		//totalCount=563
 		
 		int tempEndPage = (int)(Math.ceil(totalCount/(double)criteria.getPerPageNum()));

@@ -42,12 +42,19 @@
 			}
 			return false;
 		}
+		
+		var isCheck = false;
+		
 		$(document).ready(function(){
 			$('#signup').submit(function(){
 				if(!checkLength('#signup input[name=id]',8,13)){
 					alert('아이디는 8~13자리입니다.');
 					return false;
 				}	
+				if(!isCheck){
+					alert('아이디 중복검사를 하세요 ')
+					return false;
+				}
 				if(!checkLength('#signup input[name=pw]',8,13)){
 					alert('비밀번호는 8~13자리입니다.');
 					return false;
@@ -63,6 +70,32 @@
 				alert('회원가입에 성공했습니다.');
 				return true;
 			});
+			
+			$('#dup').click(function(){
+				var id=$('input[name=id]').val(); //서버로 아이디값을 보내기 위해 입력받은 아이디의 정보를 가져오고 
+				//id유효성검사 
+				
+				$.ajax({
+			        async:true,
+			        type:'POST',
+			        data:id,
+			        url:"dup",
+			        dataType:"json",
+			        contentType:"application/json; charset=UTF-8",
+			        success : function(data){ 
+			            if(!data.isMember){
+			            	alert('회원가입이 가능한 아이디입니다.');
+			            	isCheck=true;
+			            }else{
+			            	alert('이미 가입된 회원입니다..');
+			            	isCheck=false;
+			            }
+			        }
+			    });
+			});
+			$('input[name=id]').change(function(){
+				isCheck= false;
+			})
 		});
 			
 	</script>
@@ -75,6 +108,9 @@
 				<div class="row">
 					<label class="col-4" >아이디</label>
 					<input type="text"class="form-control col-7" name="id" placeholder="아이디">
+				</div>
+				<div>
+					<button type="button" class="btn btn-outline-success offset-4 col-7" id="dup">아이디 중복확인</button>
 				</div>
 				<div class="row">
 					<label class="col-4">비밀번호</label>

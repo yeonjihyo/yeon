@@ -12,6 +12,8 @@ public interface MemberService {
 	public MemberVO signin(MemberVO mVo);
 	//회원수정
 	public boolean modify(MemberVO mVo,String oldPw);
+	//회원여부
+	public boolean isMember(String id);
 	
 	
 }

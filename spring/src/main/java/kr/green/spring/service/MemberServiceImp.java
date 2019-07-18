@@ -1,6 +1,7 @@
 package kr.green.spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.green.spring.dao.MemberDAO;
@@ -23,6 +24,9 @@ public class MemberServiceImp implements MemberService{
 	 */
 	@Autowired
 	MemberDAO memberDao;
+	//회원 가입 시 암호화가 진행되는 MemberService에 BCryptPasswordEncoder 멤버 객체 추가
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 	
 	@Override
 	public boolean singup(MemberVO mVo) {
@@ -36,6 +40,10 @@ public class MemberServiceImp implements MemberService{
 		if(memberDao.getMember(mVo.getId()) != null) {
 			return false;
 		}	
+		//회원가입창에서 입력받은 암호를 암호화 시킴
+		String encodePw = passwordEncoder.encode(mVo.getPw());
+		//회원 정보의 비밀번호를 암호화된 비밀번호로 변경
+		mVo.setPw(encodePw);
 		memberDao.signup(mVo);
 		return true;
 	}
@@ -64,7 +72,7 @@ public class MemberServiceImp implements MemberService{
 		if(oVo ==null) { 
 			return null;
 		}
-		if(oVo.getPw().equals(mVo.getPw())) {
+		if(passwordEncoder.matches(mVo.getPw(), oVo.getPw())) {//내가직접입력한번호화 암호화된 번호를 비교 ,괄호안에 순서중요 
 			return oVo;
 		}
 		return null;
@@ -80,6 +88,15 @@ public class MemberServiceImp implements MemberService{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public boolean isMember(String id) {
+		//여기서 getMember(id)는 해당아이디와 일치하는 회원정보를 가져오는거 의 의미 
+		if(memberDao.getMember(id) == null) {
+			return false;
+		}
+		return true;
 	}
 	
 

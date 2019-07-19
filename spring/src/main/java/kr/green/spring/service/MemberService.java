@@ -14,6 +14,12 @@ public interface MemberService {
 	public boolean modify(MemberVO mVo,String oldPw);
 	//회원여부
 	public boolean isMember(String id);
+	//값만가져오려는 디비에접근할필요없지만 헷갈리ㅣ까 
+	public String getVal(String id);
+	public boolean checkMember(String id, String email);
+	public String createPw();
+	public void modify(String id, String email, String newPw);
+	public void sendMail(String email, String title, String contents);
 	
 	
 }

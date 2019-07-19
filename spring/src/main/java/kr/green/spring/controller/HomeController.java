@@ -1,5 +1,7 @@
 package kr.green.spring.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -35,15 +37,13 @@ public class HomeController {
 	@Autowired
 	MemberService memberService;
 	
-	@Autowired
-	private JavaMailSender mailSender;
+//	@Autowired
+//	private JavaMailSender mailSender; 서비스에 메소드가 있기 떄문에 지워도됨 
 	
 	//서버부분을 제외한 URL이 /이고, 방식이 GET이면 home메소드를 실행
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		logger.info("메인페이지 실행");
-		
-		
 		
 		//사용자에게 home.jsp를 보내준다.
 		return "home";
@@ -68,11 +68,11 @@ public class HomeController {
 		return "redirect:/signup";
 	}
 	//로그인
-	@RequestMapping(value = "/signin", method = RequestMethod.GET)
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)//value는 URI의 경로를 넣어주는것.그래서 마지막에 자동으로 .jsp가 붙음 
 	public String signinGet(Model model) {
 		logger.info("로그인 페이지 실행");
 		
-		return "signin";
+		return "signin";//이거는 URI가 아니고 파일 폴더 경로로 앞에 자동으로 views/가 붙음
 	}
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public String signinPost(Model model, MemberVO mVo) {
@@ -135,24 +135,84 @@ public class HomeController {
 	    String setfrom = "stajun@naver.com";         
 	    String tomail  = request.getParameter("tomail");     // 받는 사람 이메일
 	    String title   = request.getParameter("title");      // 제목
-	    String content = request.getParameter("content");    // 내용
-
-	    try {
-	        MimeMessage message = mailSender.createMimeMessage();
-	        MimeMessageHelper messageHelper 
-	            = new MimeMessageHelper(message, true, "UTF-8");
-
-	        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
-	        messageHelper.setTo(tomail);     // 받는사람 이메일
-	        messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
-	        messageHelper.setText(content);  // 메일 내용
-
-	        mailSender.send(message);
-	    } catch(Exception e){
-	        System.out.println(e);
-	    }
+	    String contents = request.getParameter("contents");    // 내용
+//
+//	    try {
+//	        MimeMessage message = mailSender.createMimeMessage();
+//	        MimeMessageHelper messageHelper 
+//	            = new MimeMessageHelper(message, true, "UTF-8");
+//
+//	        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
+//	        messageHelper.setTo(tomail);     // 받는사람 이메일
+//	        messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
+//	        messageHelper.setText(content);  // 메일 내용
+//
+//	        mailSender.send(message);
+//	    } catch(Exception e){
+//	        System.out.println(e);
+//	    }메소드를 만들었기 때문에 아래처럼 간단히 불러올 수 있다 
+	    memberService.sendMail(tomail, title, contents);
 
 	    return "redirect:/mail/mailForm";
 	}
+	//비밀번호 찾기 
+	@RequestMapping(value="/password/find",  method = RequestMethod.GET)
+	public String passwordFindGet (Model model){
+		return "member/find";
+		
+	}
+	@RequestMapping(value="/password/find",  method = RequestMethod.POST)
+	public String Post(Model model,String id){
 	
+		
+		return "redirect:/find";
+		
+	}
+	
+	 
+	@RequestMapping(value ="/checkemail")
+	@ResponseBody
+	public Map<Object, Object> emailcheck(@RequestBody String str){
+
+	    Map<Object, Object> map = new HashMap<Object, Object>();
+	    
+//	    System.out.println(str);
+	    String [] arr= new String [2];
+	    arr= str.split("&");//&를 기준으로 아이디와 이메일을 나눔
+	    //String [] arr= str.split("&"); 와 같음 
+	    String id=arr[0];
+	    String email="";
+	    try {
+			email=URLDecoder.decode(arr[1],"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    id=memberService.getVal(id);//아이디넘겨주면 값만 나오게 해주는 애(id=이 안나오게 ) 
+	    email=memberService.getVal(email);
+	    
+//	    System.out.println(id);
+//	    System.out.println(email);
+	    
+	    boolean isOk=memberService.checkMember(id,email);
+	    map.put("isOk",isOk );
+	   
+	    return map;
+	}
+	
+	@RequestMapping(value="/password/send")
+	public String passwordSend (String id, String email){
+		//비밀번호 생성
+		String newPw=memberService.createPw();
+		//생성된비밀번호 디비에 저장
+		memberService.modify(id,email,newPw);
+		//이메일발송
+		String title="변경된 비밀번호입니다";
+		String contents="변경된 비밀번호입니다.\n"+newPw+"\n";
+		memberService.sendMail(email,title,contents);
+		System.out.println(newPw);
+		
+		return "send";
+		
+	}
 }

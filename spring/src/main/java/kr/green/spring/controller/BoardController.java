@@ -26,7 +26,7 @@ public class BoardController {
 	//게시판목록
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String boardListGet(Model model, Criteria cri) {
-		cri.setPerPageNum(2);//개시글의갯수
+		cri.setPerPageNum(2);//게시글의갯수
 		ArrayList<BoardVO> boardList=boardService.getBoardList(cri);
 		PageMaker pm=new PageMaker();
 		
@@ -67,7 +67,7 @@ public class BoardController {
 		return "board/modify";
 	}
 	@RequestMapping (value= "/modify", method=RequestMethod.POST)//수정된내용을 전송해야하니까 post가 필요
-	//HttpServletRequest : 요청된 정보가 들어있는거 
+	//HttpServletRequest : 요청된 정보가 들어있는거 ,현재 열려있는 서버->객체로가져옴(세션에담아)
 	public String boardModifyPost(Model model,BoardVO bVo,HttpServletRequest r) {
 		System.out.println(bVo);
 		boardService.updateBoard(bVo,r);//로그인한 사람이 작성자인지 아닌지 확인하기 위해 r을 넣어줌

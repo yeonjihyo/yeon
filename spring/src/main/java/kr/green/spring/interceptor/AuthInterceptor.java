@@ -14,7 +14,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		HttpSession session = request.getSession();//현재세션정보를가져오고
 		Object user = session.getAttribute("user");//세션에유저가있는지가져오고 없으면널 있으면 가져옴
-		//Object 멤버변수흫 사용할수 없다는 차이가 있음 널인지아닌지만확인하니까 멤버브이오는 형변환이필요하니까 
+		//Object 멤버변수를 사용할수 없다는 차이가 있음 널인지아닌지만확인하니까 멤버브이오는 형변환이필요하니까 
 		//MemberVO user = (MemberVO)session.getAttribute("user");
 		if(user == null) {
 			response.sendRedirect(request.getContextPath()+"/");// 절대경로로다시보내줌 비회원이면 메인페이지로가라 

@@ -8,7 +8,7 @@
   </select>
   <insert id="signup">
   	insert into member(id,pw,gender,email,name)
-  	values (#{id},#{pw},#{gender},#{email},#{name})<!--mVo를 디비에 넣는거니까 getter를 요청해서 getId를 호출함  -->
+  	values (#{id},#{pw},#{gender},#{email},#{name})<!-- #{}는 mVo를 디비에 넣는거니까 getter를 요청해서 getId를 호출한다는 뜻  -->
   </insert>
   <update id="modify">
   	update member

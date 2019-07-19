@@ -156,18 +156,11 @@ public class HomeController {
 	    return "redirect:/mail/mailForm";
 	}
 	//비밀번호 찾기 
-	@RequestMapping(value="/password/find",  method = RequestMethod.GET)
-	public String passwordFindGet (Model model){
-		return "member/find";
-		
-	}
-	@RequestMapping(value="/password/find",  method = RequestMethod.POST)
-	public String Post(Model model,String id){
-	
-		
-		return "redirect:/find";
-		
-	}
+	@RequestMapping(value = "/password/find")
+	public String passwordFind() {
+
+	    return "member/find";
+	} 
 	
 	 
 	@RequestMapping(value ="/checkemail")

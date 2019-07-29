@@ -1,0 +1,23 @@
+﻿1.modify.jsp에서
+ - form태그에 enctype="multipart/form-data" 추가 
+   (enctype="multipart/form-data" : 첨부파일을 보내는 역할)
+
+ -input태그의 name=file에 value를 ${board.fileName}으로 수정
+ -name=file인 input 태그 밑에  name=file2이고 type=file인 input태그추가
+
+2.BoardController에서 
+ -boardModifyPost메소드에 매개변수 MultipartFile file2추가 
+ -boardModifyPost메소드에 파일업로드하는코드를 게시글등록메소드에서 복붙후 boardVO를 bVo로 수정	
+if(file2.getOriginalFilename().length() != 0) {//첨부파일이 있으면  
+	String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+	//UploadFileUtils : 객체를안만들고 불러오는게 가능한 이유는 uploadFile에 static이 붙었기 때문에 
+	boardVo.setFile(file);
+}
+ -에러해결위해 add throws declaration클릭
+else문 추가 
+else {//첨부파일에 추가한 파일이 없는경우
+	BoardVO tmp=boardService.getBoard(bVo.getNum());//기존게시글을 가져오고 
+	bVo.setFile(tmp.getFile());
+}
+
+3.테스트

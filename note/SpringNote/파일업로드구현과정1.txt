@@ -1,0 +1,32 @@
+﻿gitHub - =>깃헙에서 코드복사해야한다는걸의미
+1.gitHub - 파일 의존성 추가코드 pom.xml에 복붙 
+2.gitHub - 파일업로드 bean에 등록코드 servlet-context.xml에 복붙
+ -업로드파일용량수정하고싶으면 values값 수정 단위는 byte
+ -기준 10Mbyte로 되어 있음
+3. register.jsp - form태그에  enctype="multipart/form-data" 속성추가 및
+                       name="file"인 input태그의 type를 file로 수정(기존 text로 되어있음)하고 name을 file2로 수정
+4. gitHub - 서버에 저장될 파일의 경로설정코드  servlet-context.xml에 복붙
+ -저장 경로를 수정하고 싶으면 value의 경로를 수정
+ -유의사항으로 해당폴더가 실제로 있어야 함 
+5.gitHub - 서버에 업로드할 파일 저장하기 BoardController에 uploadFile메소드를 복붙
+             BoardController에 boardRegisterPost메소드의 매개변수 부분에 MultipartFile file2추가
+             BoardController에 boardRegisterPost메소드 내용을 다음 코드로 변경
+             if(file2.getOriginalFilename().length() != 0) {
+		String file = uploadFile(file2.getOriginalFilename(),file2.getBytes());
+		boardVo.setFile(file);
+             }
+             boardService.registerBoard(boardVo);
+
+6. 파일명에 UUID가 붙어 나오는 것을 해결하기 위해 다음 작업을 수행
+ -BoardVO에  getFileName 메소드 추가
+public String getFileName() {
+	//UUID가 제거되도록 코드작성
+	//4d781699-bc2c-4f4e-aa2a-9ebb87ff9d3e_2.jpg => 2.jpg가 되도록
+	if(file ==null) {
+		return "";
+	}
+	int index = file.indexOf("_");
+	return file.substring(index+1);
+}
+
+ -board/display.jsp에서 ${board.file}를 ${board.fileName}로 수정

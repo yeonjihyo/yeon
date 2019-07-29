@@ -1,0 +1,23 @@
+﻿1. modify.jsp에서 
+ -x버튼 추가 (fontawesome에서 다운),del클래스 추가 
+  <i class="fas fa-times del"></i>
+
+ -스크립트로 x버튼 클릭시 name=file인 input태그의 내용비우는 기능 추가 
+$(document).ready(function(){
+	$('.del').click(function(){
+		$(this).prev().val("");
+	});
+});
+
+2.BoardController에서 
+ -boardModifyPost메소드의 else문을 다음과 같이 수정
+   -수정전
+     BoardVO tmp=boardService.getBoard(bVo.getNum());//기존게시글을 가져오고 
+     bVo.setFile(tmp.getFile());
+   -수정후
+       if(bVo.getFile().length() == 0) {
+ 	bVo.setFile("");
+       }else {
+	BoardVO tmp=boardService.getBoard(bVo.getNum());//기존게시글을 가져오고 
+	bVo.setFile(tmp.getFile());
+       }

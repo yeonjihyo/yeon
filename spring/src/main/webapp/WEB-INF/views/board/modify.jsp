@@ -9,10 +9,16 @@
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
+	$(document).ready(function(){
+		$('.del').click(function(){
+			$(this).prev().val("");
+		});
+	});
 </script>
 <body><!-- 괄호안은 속성명임 -->
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
-	<form action="<%=request.getContextPath()%>/board/modify" method="post">
+	<!-- enctype="multipart/form-data" : 첨부파일을 보내는 역할  -->
+	<form action="<%=request.getContextPath()%>/board/modify" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="num" value="${board.num}">
 	<div class="container-fluid" style="margin-top: 80px;">
 		<div class="form-group">
@@ -37,7 +43,11 @@
 		</div>
 		<div class="form-group">
 		  <label>첨부파일</label>
-		  <input type="text" class="form-control" name="file" value="${board.file}" >
+		  <div class="clearfix">
+		  	<input type="text" class="form-control col-11 float-left" name="file" value="${board.fileName}" readonly>
+		  	<i class="fas fa-times del"></i>
+		  </div>
+		  <input type="file" class="form-control" name="file2">
 		</div>
 		<a href="<%=request.getContextPath()%>/board/list">
 			<button type="button" class="btn btn-outline-danger">목록</button>

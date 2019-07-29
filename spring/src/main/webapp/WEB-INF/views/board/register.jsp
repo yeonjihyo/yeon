@@ -12,6 +12,7 @@
 </script>
 <body><!-- 괄호안은 속성명임 -->
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
+	<!-- enctype="multipart/form-data" : 첨부파일을 보내는 역할  -->
 	<form  action="<%=request.getContextPath()%>/board/register" method="post" enctype="multipart/form-data">
 		<div class="container-fluid" style="margin-top: 80px;">
 			<div class="form-group">
@@ -42,12 +43,8 @@
 			</div>
 			<a href="<%=request.getContextPath()%>/board/list">
 				<button type="button" class="btn btn-outline-danger">목록</button>
-			
-			
 			</a>
-		
 				<button type="submit" class="btn btn-outline-danger">등록하기</button>
-
 			<a href="<%=request.getContextPath()%>/board/list">
 				<button type="button" class="btn btn-outline-danger">취소</button>
 			</a>

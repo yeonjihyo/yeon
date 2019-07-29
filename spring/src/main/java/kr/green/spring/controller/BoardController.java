@@ -85,10 +85,25 @@ public class BoardController {
 	}
 	@RequestMapping (value= "/modify", method=RequestMethod.POST)//수정된내용을 전송해야하니까 post가 필요
 	//HttpServletRequest : 요청된 정보가 들어있는거 ,현재 열려있는 서버->객체로가져옴(세션에담아)
-	public String boardModifyPost(Model model,BoardVO bVo,HttpServletRequest r) {
-		System.out.println(bVo);
+	public String boardModifyPost(Model model,BoardVO bVo,HttpServletRequest r,MultipartFile file2) throws IOException, Exception {
+		//System.out.println(bVo);
+		
+		if(file2.getOriginalFilename().length() != 0) {//첨부파일이 있으면  
+			String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+			//UploadFileUtils : 객체를안만들고 불러오는게 가능한 이유는 uploadFile에 static이 붙었기 때문에 
+			bVo.setFile(file);
+		}else {//첨부파일에 추가한 파일이 없는경우
+			if(bVo.getFile().length() == 0) {
+				bVo.setFile("");
+			}else {
+				BoardVO tmp=boardService.getBoard(bVo.getNum());//기존게시글을 가져오고 
+				bVo.setFile(tmp.getFile());
+			}
+		}
+		
 		boardService.updateBoard(bVo,r);//로그인한 사람이 작성자인지 아닌지 확인하기 위해 r을 넣어줌
 		model.addAttribute("num", bVo.getNum());
+		
 		return "redirect:/board/display";
 	}
 	//게시글등록
@@ -101,7 +116,7 @@ public class BoardController {
 	@RequestMapping (value= "/register", method=RequestMethod.POST)
 	public String boardRegisterPost(Model model,MultipartFile file2,BoardVO boardVo) throws IOException, Exception {
 		System.out.println(boardVo);//게시판정보가잘들어오는지확인//게시판들어가서 등록마쳤을떄 정보가 떠야함
-		if(file2.getOriginalFilename().length() != 0) {
+		if(file2.getOriginalFilename().length() != 0) {//첨부파일이 있으면  
 			String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
 			//UploadFileUtils : 객체를안만들고 불러오는게 가능한 이유는 uploadFile에 static이 붙었기 때문에 
 			boardVo.setFile(file);
@@ -118,17 +133,6 @@ public class BoardController {
 			boardService.deleteBoard(num);
 		}
 		return "redirect:/board/list";//삭제기능만처리하겟다,jsp안만들어도됨
-	}
-	//파일업로드
-	//@RequestMapping없음,내부적으로호출하기위한메소드  
-	private String uploadFile(String name, byte[] data)
-		throws Exception{
-	    /* 고유한 파일명을 위해 UUID를 이용 */
-		UUID uid = UUID.randomUUID();
-		String savaName = uid.toString() + "_" + name;
-		File target = new File(uploadPath, savaName);
-		FileCopyUtils.copy(data, target);
-		return savaName;
 	}
 	
 	//파일다운로드

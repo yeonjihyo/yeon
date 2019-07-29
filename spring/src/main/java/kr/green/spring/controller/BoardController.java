@@ -1,14 +1,20 @@
 package kr.green.spring.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
@@ -22,6 +28,8 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
+	@Resource//서블릿에등록하는거로 서블릿에서 이름이 uploadPath인애를찾음
+	private String uploadPath;
 	
 	//게시판목록
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -82,11 +90,17 @@ public class BoardController {
 		return "board/register";
 	}
 	@RequestMapping (value= "/register", method=RequestMethod.POST)
-	public String boardRegisterPost(Model model,BoardVO boardVo) {
-		System.out.println(boardVo);//게시판정보가잘들어오는지확인//게시판들어가서 등록마쳤을떄 정보가 떠야함 
+	public String boardRegisterPost(Model model,MultipartFile file2,BoardVO boardVo) throws IOException, Exception {
+		System.out.println(boardVo);//게시판정보가잘들어오는지확인//게시판들어가서 등록마쳤을떄 정보가 떠야함
+		if(file2.getOriginalFilename().length() != 0) {
+			String file = uploadFile(file2.getOriginalFilename(),file2.getBytes());
+			boardVo.setFile(file);
+		}
 		boardService.registerBoard(boardVo);
+		
 		return "redirect:/board/list";
 	}
+	
 	//게시글삭제
 	@RequestMapping (value= "/delete", method=RequestMethod.GET)
 	public String boardDisplayDeleteGet(Model model,Integer num, HttpServletRequest r) {// r: 작성자정보가져오기위해 세션에 접근
@@ -94,6 +108,17 @@ public class BoardController {
 			boardService.deleteBoard(num);
 		}
 		return "redirect:/board/list";//삭제기능만처리하겟다,jsp안만들어도됨
+	}
+	//파일업로드
+	//@RequestMapping없음,내부적으로호출하기위한메소드  
+	private String uploadFile(String name, byte[] data)
+		throws Exception{
+	    /* 고유한 파일명을 위해 UUID를 이용 */
+		UUID uid = UUID.randomUUID();
+		String savaName = uid.toString() + "_" + name;
+		File target = new File(uploadPath, savaName);
+		FileCopyUtils.copy(data, target);
+		return savaName;
 	}
 
 }

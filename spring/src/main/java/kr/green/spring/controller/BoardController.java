@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
+import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVO;
 
 @Controller
@@ -93,7 +94,8 @@ public class BoardController {
 	public String boardRegisterPost(Model model,MultipartFile file2,BoardVO boardVo) throws IOException, Exception {
 		System.out.println(boardVo);//게시판정보가잘들어오는지확인//게시판들어가서 등록마쳤을떄 정보가 떠야함
 		if(file2.getOriginalFilename().length() != 0) {
-			String file = uploadFile(file2.getOriginalFilename(),file2.getBytes());
+			String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+			//UploadFileUtils : 객체를안만들고 불러오는게 가능한 이유는 uploadFile에 static이 붙었기 때문에 
 			boardVo.setFile(file);
 		}
 		boardService.registerBoard(boardVo);

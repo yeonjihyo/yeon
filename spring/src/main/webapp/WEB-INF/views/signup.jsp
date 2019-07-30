@@ -116,7 +116,7 @@
 		            pw: {
 		                required : true,
 		                minlength : 8,
-		                minlength : 20,
+		                maxlength : 20,
 		                regex: /^\w*(\d[A-z]|[A-z]\d)\w*$/
 		            },
 		            pw2: {

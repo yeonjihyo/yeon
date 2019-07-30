@@ -38,8 +38,8 @@
 				<th>${member.authority}</th>
 				<th>
 					<select>
-					<option value="id=${member.id}&authority=ADMIN&page=${pageMaker.criteria.page}" <c:if test="${member.authority eq 'ADMIN'}">selected</c:if>>ADMIN</option>
-					<option value="id=${member.id}&authority=user&page=${pageMaker.criteria.page}" <c:if test="${member.authority eq 'user'}">selected</c:if>>user</option>			
+						<option value="id=${member.id}&authority=ADMIN&page=${pageMaker.criteria.page}" <c:if test="${member.authority eq 'ADMIN'}">selected</c:if>>ADMIN</option>
+						<option value="id=${member.id}&authority=user&page=${pageMaker.criteria.page}" <c:if test="${member.authority eq 'user'}">selected</c:if>>user</option>			
 					</select>
 				</th>
 			</tr>

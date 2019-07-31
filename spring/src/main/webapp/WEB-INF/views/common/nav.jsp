@@ -9,8 +9,16 @@
 	      <a class="nav-link" href="https://github.com/" target="_blank">github</a><!--_blank: 새탭으로 열어줌 -->
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" href="#">Link</a>
+	      <a class="nav-link" href="<%=request.getContextPath()%>/board/list">게시판</a>
 	    </li>
+	    <c:if test="${user.authority eq 'ADMIN'}">
+		    <li class="nav-item">
+		      <a class="nav-link" href="<%=request.getContextPath()%>/admin/user/list">회원관리</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="<%=request.getContextPath()%>/admin/board/list">게시판관리</a>
+		    </li>
+	    </c:if>
 	    <li class="nav-item"style=" right:20px; position:absolute;">
 	      <a class="nav-link" href="<%=request.getContextPath()%>/signout">로그아웃</a>
 	    </li>

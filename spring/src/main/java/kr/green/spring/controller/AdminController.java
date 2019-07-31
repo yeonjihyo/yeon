@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
+import kr.green.spring.service.BoardService;
 import kr.green.spring.service.MemberService;
 import kr.green.spring.service.PageMakerService;
+import kr.green.spring.vo.BoardVO;
 import kr.green.spring.vo.MemberVO;
 
 @Controller
@@ -23,7 +25,8 @@ public class AdminController {
 	MemberService memberService;
 	@Autowired
 	PageMakerService pageMakerService;
-	
+	@Autowired
+	BoardService boardService;
 	
 	@RequestMapping (value= "/admin/user/list", method=RequestMethod.GET)
 	public String adminUserListGet(Model model,  Criteria cri) {
@@ -43,6 +46,7 @@ public class AdminController {
 		
 		return "admin/user/list";
 	}
+	
 	@RequestMapping (value= "/admin/user/update", method=RequestMethod.GET)
 	public String adminUserUpdateGet(Model model,  Criteria cri, MemberVO mVo) {
 		memberService.updateAuthority(mVo);
@@ -50,4 +54,21 @@ public class AdminController {
 		return "redirect:/admin/user/list";
 	}
 	
+	@RequestMapping (value= "/admin/board/list", method=RequestMethod.GET)
+	public String adminBoardListGet(Model model,Criteria cri) {
+		ArrayList<BoardVO> boardList=boardService.getBoardListAll(cri);
+		int totalCount =boardService.getTotalCountAll(cri);
+
+		PageMaker pm=pageMakerService.getPageMaker(5,cri,totalCount);
+		
+		model.addAttribute("pageMaker", pm);
+		model.addAttribute("list", boardList);
+		return "admin/board/list";
+	}
+	@RequestMapping (value= "/admin/board/update", method=RequestMethod.GET)
+	public String adminBoardUpdateGet(Model model,  Criteria cri, BoardVO bVo) {
+		boardService.updateValid(bVo);
+		model.addAttribute("page",cri.getPage());
+		return "redirect:/admin/board/list";
+	}
 }

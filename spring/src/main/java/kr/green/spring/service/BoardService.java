@@ -25,6 +25,12 @@ public interface BoardService {
 
 	int getTotalCount(Criteria cri);
 
+	ArrayList<BoardVO> getBoardListAll(Criteria cri);
+
+	int getTotalCountAll(Criteria cri);
+
+	void updateValid(BoardVO bVo);
+
 
 
 

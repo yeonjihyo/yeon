@@ -55,6 +55,38 @@
 			AND writer like concat('%',#{search},'%')
 		</if>
  	</select>
- 	
- 	
+ 	<select id="getTotalCountAll" resultType="int">
+ 		select count(*) from board where 1=1<!--뒤에 이프에 and가 있기때문에 1=1이라는 항상참인걸 써줌  -->
+ 		<if test="type==1">
+			AND title like concat('%',#{search},'%')<!-- concat 이어붙여주는거 -->
+		</if>	
+		<if test="type==2">
+			AND contents like concat('%',#{search},'%')
+		</if>
+		<if test="type==3">
+			AND writer like concat('%',#{search},'%')
+		</if>
+ 	</select>
+ 	<select id="getBoardListAll" resultType="kr.green.spring.vo.BoardVO">
+ 		select * from board 
+ 			where 1=1 
+ 			<if test="type==1">
+ 				AND title like concat('%',#{search},'%')
+ 			</if>	
+ 			<if test="type==2">
+ 				AND contents like concat('%',#{search},'%')
+ 			</if>
+ 			<if test="type==3">
+ 				AND writer like concat('%',#{search},'%')
+ 			</if>	
+ 			ORDER BY num desc	
+ 			limit #{pageStart}, #{perPageNum};
+ 	</select>
+ 	<update id="updateValid">
+  	update board
+  		set
+  			valid = #{valid}
+		where 
+			num=#{num}
+  </update>
 </mapper>

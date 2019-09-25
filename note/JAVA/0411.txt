@@ -1,0 +1,54 @@
+아래에서 잘못된 부분을 찾으시오
+class A{
+	public int num; //public=>private
+	public void setNum(int num){
+		num=num; //this.num=num;
+	}
+	public char getNum(){ //char=>int
+		return num; 
+	}
+	public void A(){          //void없어야
+	public void A(int num){   //void없어야
+		num=num;        //this.num=num;
+	}
+								
+}
+
+
+
+
+
+
+//다음 코드의 실행결과를 예측하시오
+public static void main(String[] args) {
+	int num=10;
+	for(int i=1; i<=num; i++){
+		if (num%i==0){
+			system.out.println(i);
+		}
+	}
+}
+
+1,2.5,10
+10의 약수
+
+
+//다음 코드에서 에러가 나는 부분d을 찾고 해결방법을 생각해보세요 
+public static void main(String[] args) {
+	int num=10;
+	for(int i=1; i<=num; i++){
+		if (num%i==0){
+			system.out.println(i);
+		}
+	}
+}
+
+=>들여쓰기
+
+
+//
+
+
+
+
+

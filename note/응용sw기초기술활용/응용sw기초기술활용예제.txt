@@ -1,0 +1,24 @@
+명령어 예제 
+
+1.폴더만들기 
+c-test-test1-hi1
+c-test-test2-hi2
+
+
+2.hi2에서 hi1로 이동 
+
+아래처럼 간단하게 할 수 있음  
+cd ../../test1/hi1
+cd /test1/hi1
+
+3.hi2폴더를 test1폴더에 옮기기
+
+c-test-test1-hi1
+	   -hi2
+c-test-test2   (이렇게 되게)
+
+hi2는 test2폴더에 포함되어 있으니까
+test2로 가서 move hi2 ../test1 하면 옮겨짐
+
+4.
+
